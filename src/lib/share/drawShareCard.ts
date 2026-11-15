@@ -22,6 +22,7 @@ import { loadShareCardFonts } from "./fonts";
 import { createBlurredBackground, drawCornerSlabs } from "./slabs";
 import { drawStarFlare, drawRegionBoundaryMap, drawGalaxyHero, drawAsteroidHero } from "./hero";
 import type { TargetCategory } from "@/types/sky";
+import { cleanObjectName } from "@/lib/explore/detectCategory";
 
 /** Set to true by default to match the dark Canva QR tile with light modules */
 export const QR_INVERTED = true;
@@ -240,7 +241,7 @@ export async function drawShareCard(
       data.constellations,
       data.stars
     );
-    titleText = cardFacts.title;
+    titleText = cleanObjectName(cardFacts.title);
     coordsText = formatStraightCoordinatesSexagesimal(
       data.selection.ra,
       data.selection.dec

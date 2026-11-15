@@ -1,5 +1,6 @@
 import { SITE_URL } from "@/config/site";
 import { SkySelection } from "@/types/sky";
+import { cleanObjectName } from "@/lib/explore/detectCategory";
 
 export interface ShareUrlOptions {
   selection: SkySelection;
@@ -61,7 +62,7 @@ export function buildShareUrl(selection: SkySelection, explicitOrigin?: string):
  * Format: hanos-<slug>-<abbr-or-hip>.png
  */
 export function generateCardFilename(selection: SkySelection): string {
-  const rawName = selection.name || (selection.kind === "star" ? `hip-${selection.id}` : selection.kind === "region" ? selection.abbr : "target");
+  const rawName = cleanObjectName(selection.name) || (selection.kind === "star" ? `hip-${selection.id}` : selection.kind === "region" ? selection.abbr : "target");
   const slug = rawName
     .toLowerCase()
     .normalize("NFD")

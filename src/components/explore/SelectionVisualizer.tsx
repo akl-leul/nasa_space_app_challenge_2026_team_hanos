@@ -2,6 +2,7 @@
 
 import { useRef, useId } from "react";
 import { SkySelection, PlayRegionParams } from "@/types/sky";
+import { cleanObjectName } from "@/lib/explore/detectCategory";
 
 interface SelectionVisualizerProps {
   selection: SkySelection | null;
@@ -96,7 +97,7 @@ export function SelectionVisualizer({
   const targetName = selection
     ? isRegion
       ? selection.name
-      : selection.name || `HIP ${selection.id}`
+      : cleanObjectName(selection.name) || `HIP ${selection.id}`
     : "";
 
   return (

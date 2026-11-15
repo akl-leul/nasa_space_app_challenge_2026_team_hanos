@@ -1,4 +1,5 @@
 import { SkySelection, ConstellationInfo, StarRecord } from "@/types/sky";
+import { cleanObjectName } from "@/lib/explore/detectCategory";
 
 export interface FactLine {
   label: string;
@@ -143,7 +144,7 @@ export function computeCardFacts(
 
   // Object Selection (Galaxies, Asteroids, Brown Dwarfs, Searched Stars)
   if (selection.kind === "object") {
-    const title = selection.name.toUpperCase();
+    const title = cleanObjectName(selection.name).toUpperCase();
     const facts: FactLine[] = [];
     const cat = selection.category || "object";
 
@@ -244,7 +245,7 @@ export function computeCardFacts(
   }
 
   // Star Selection
-  const title = (selection.name || `HIP ${selection.id}`).toUpperCase();
+  const title = (cleanObjectName(selection.name) || `HIP ${selection.id}`).toUpperCase();
   const facts: FactLine[] = [];
 
   // Fact 1: Visual Magnitude

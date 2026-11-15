@@ -13,6 +13,7 @@ import {
 } from "@/lib/astro/coordinates";
 import { buildStarSpatialIndex, pickNearestStar, getStarDisplayName, StarSpatialIndex } from "@/lib/astro/starIndex";
 import { updateStatusBarDirect } from "./StatusBar";
+import { cleanObjectName } from "@/lib/explore/detectCategory";
 
 // Polyfill WebGL precision query if missing or returning null in software/headless contexts
 if (typeof window !== "undefined") {
@@ -508,7 +509,7 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
                 chCenter?.setAttribute("cy", sy.toFixed(1));
 
                 const cat = (curSelection.category || (curSelection.kind === "star" ? "star" : "target")).toUpperCase();
-                const nameStr = (curSelection.name || "").toUpperCase();
+                const nameStr = cleanObjectName(curSelection.name).toUpperCase();
                 const label = nameStr ? `${nameStr} · ${cat}` : cat;
 
                 if (badgeText) {

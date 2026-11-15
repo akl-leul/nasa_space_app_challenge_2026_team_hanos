@@ -5,6 +5,7 @@ import { SkySelection, ConstellationInfo, StarRecord } from "@/types/sky";
 import { drawShareCard, ShareCardData } from "@/lib/share/drawShareCard";
 import { buildShareUrl, generateCardFilename, getBaseOrigin } from "@/lib/share/shareUrl";
 import { computeCardFacts } from "@/lib/share/facts";
+import { cleanObjectName } from "@/lib/explore/detectCategory";
 
 export interface ShareCardDialogProps {
   isOpen: boolean;
@@ -187,7 +188,7 @@ export function ShareCardDialog({
     const canvas = canvasRef.current;
     if (!canvas || typeof navigator === "undefined" || !navigator.share) return;
 
-    const targetName = selection.kind === "region" ? selection.name : selection.name || `HIP ${selection.id}`;
+    const targetName = selection.kind === "region" ? selection.name : cleanObjectName(selection.name) || `HIP ${selection.id}`;
 
     // Try sharing as image file first
     canvas.toBlob(async (blob) => {

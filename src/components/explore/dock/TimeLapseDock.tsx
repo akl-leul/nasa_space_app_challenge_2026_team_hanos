@@ -213,7 +213,7 @@ export function TimeLapseDock({
       {/* header */}
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
-          <div className="uppercase tracking-widest text-cream truncate">{activeTarget?.name ?? "Pinned point"}</div>
+          <div className="uppercase tracking-widest text-cream truncate">{cleanName || "Pinned point"}</div>
           {activeTarget && (
             <div className="text-cream/60 tracking-wide">
               RA {formatRaSexagesimal(activeTarget.ra)} · Dec {formatDecSexagesimal(activeTarget.dec)} · J{activeTarget.epoch.toFixed(0)}

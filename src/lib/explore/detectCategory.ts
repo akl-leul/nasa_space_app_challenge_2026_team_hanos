@@ -1,6 +1,18 @@
 import type { TargetCategory } from "@/types/sky";
 
 /**
+ * Strips catalog prefix noise like "NAME ", "Name ", "NAME:", "* ", "V* "
+ * so users see clean celestial object names (e.g. "Ceres" instead of "NAME Ceres").
+ */
+export function cleanObjectName(rawName: string | undefined | null): string {
+  if (!rawName) return "";
+  return rawName
+    .replace(/^(NAME|Name)\s*[:\-]?\s+/i, "")
+    .replace(/^(\*|V\*)\s+/i, "")
+    .trim();
+}
+
+/**
  * Detects whether a celestial object is a star, brown dwarf, galaxy, asteroid/planet, or region
  * based on its name, SIMBAD otype, and detail string.
  */
