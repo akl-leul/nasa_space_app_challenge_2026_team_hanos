@@ -320,7 +320,7 @@ export function TimeLapseDock({
               </svg>
             )}
 
-            {/* Centroid-locked Target Label (8px font, exact sample image tracking) */}
+            {/* Centroid-locked Target Label (8px font, exact sample image tracking)
             {f && targetX != null && targetY != null && (
               <div
                 style={{
@@ -341,7 +341,7 @@ export function TimeLapseDock({
                   {cleanName} {!detectedHere && f.expected ? "(pred)" : ""}
                 </span>
               </div>
-            )}
+            )} */}
 
             {!imgUrl && (
               <div className="absolute inset-0 flex items-center justify-center text-center text-cream/60 px-6">

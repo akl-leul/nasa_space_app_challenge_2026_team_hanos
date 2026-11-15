@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
     },
   },
   // Landing assets that never change under the same name are cached for a year (repeat visits load nothing).
-  // app-preview.svg is left out: it is meant to be replaced.
+  // app-preview.webp is left out: it is meant to be replaced with newer screenshots.
   async headers() {
     return [
       // the content security policy would block the dev server hot reload, so it is for production only

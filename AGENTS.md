@@ -125,7 +125,7 @@ How it is built (read this before changing the landing page):
 - Behaviour is TypeScript in `src/lib/landing/` (smooth scroll with vendored Lenis, the liquid challenge reveal, the pinned team story, the dock-and-gather, theme switch, page wipe). `LandingController` loads it as a separate chunk after the page paints, and `init.ts` undoes everything on route changes.
 - `landing.css` was generated from the reference stylesheets by prefixing every selector with `.hanos` (state classes live on that wrapper), then a block that restores the browser's own defaults (the reference was written against them; Tailwind's reset would otherwise change sizes). Keep new landing rules inside `.hanos`.
 - Ours, not the reference's: the two sky-map buttons ("SKY MAP" in the hero, "open Sky Map" in Our project) are links to `/explore`; the reference opened a dialog, which was removed.
-- The picture in the project device frame (`public/landing/app-preview.svg`) is a label-free **illustrative placeholder**, not a screenshot and not SPHEREx data. Do not present either as real data.
+- The picture in the project device frame (`public/landing/app-preview.webp`) is a screenshot of our own Sky Explorer (sky dome and constellation boundaries from the reference star catalogue), not SPHEREx imagery. Do not present it as SPHEREx data; replace it with a newer screenshot of the same size when the interface changes.
 - Fixed rules still apply: photosensitivity (no flashing), reduced motion honoured, keyboard reachable, visible focus.
 
 ### 2. Every other page (`(app)` route group)

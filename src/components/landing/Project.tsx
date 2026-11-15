@@ -1,11 +1,12 @@
-/* eslint-disable @next/next/no-img-element -- an SVG placeholder: next/image would not optimise it */
+/* eslint-disable @next/next/no-img-element -- a fixed screenshot shown in a CSS frame, loaded lazily */
 import Link from "next/link";
 import { Words } from "./Words";
 
 /**
  * "Our project": the summary and the sky-map link (to the explorer), beside a tilting device frame.
- * The picture in the frame is a label-free ILLUSTRATIVE placeholder (public/landing/app-preview.svg), not a
- * screenshot of the explorer and not SPHEREx data. Swap it for a real screenshot when there is one.
+ * The picture in the frame is a screenshot of the Sky Explorer itself (public/landing/app-preview.webp: the sky dome with
+ * constellation boundaries, taken from the reference star catalogue). It is a picture of our interface, not SPHEREx
+ * imagery. Replace the file with a newer screenshot of the same 2000 x 1139 size when the interface changes.
  */
 export function Project() {
   return (
@@ -31,7 +32,7 @@ export function Project() {
             <span></span>
           </div>
           <div className="device-screen">
-            <img src="/landing/app-preview.svg" width={1280} height={800} alt="" loading="lazy" decoding="async" />
+            <img src="/landing/app-preview.webp" width={2000} height={1139} alt="" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
