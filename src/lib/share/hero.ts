@@ -380,33 +380,68 @@ export function drawAsteroidHero(
     const targetH = targetW / aspect;
     ctx.drawImage(heroImg, cx - targetW / 2, cy - targetH / 2, targetW, targetH);
   } else {
-    // Procedural minor planet / asteroid body
-    const radius = toExportPx(95);
+    // Procedural irregular rocky asteroid with impact craters
+    const baseR = toExportPx(92);
+    // 16 polygonal vertices with organic rocky offsets (irregular potato/boulder silhouette)
+    const vertices: [number, number][] = [
+      [1.0, 0.05], [0.92, 0.38], [0.82, 0.72], [0.55, 0.95],
+      [0.15, 1.08], [-0.32, 0.98], [-0.68, 0.82], [-0.95, 0.48],
+      [-1.05, 0.08], [-0.98, -0.42], [-0.75, -0.78], [-0.42, -0.98],
+      [-0.05, -1.02], [0.38, -0.92], [0.72, -0.68], [0.95, -0.32],
+    ];
 
-    // Ambient body gradient
+    // Directional light gradient from upper-left
     const bodyGrad = ctx.createRadialGradient(
-      cx - radius * 0.35,
-      cy - radius * 0.35,
-      radius * 0.1,
-      cx,
-      cy,
-      radius
+      cx - baseR * 0.45,
+      cy - baseR * 0.45,
+      baseR * 0.15,
+      cx + baseR * 0.2,
+      cy + baseR * 0.2,
+      baseR * 1.3
     );
     bodyGrad.addColorStop(0, "#D5D2C8");
-    bodyGrad.addColorStop(0.5, "#828076");
-    bodyGrad.addColorStop(0.85, "#383630");
+    bodyGrad.addColorStop(0.35, "#9A978C");
+    bodyGrad.addColorStop(0.7, "#4E4B42");
     bodyGrad.addColorStop(1, "#181714");
 
     ctx.fillStyle = bodyGrad;
     ctx.beginPath();
-    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    for (let i = 0; i < vertices.length; i++) {
+      const [vx, vy] = vertices[i];
+      const px = cx + vx * baseR;
+      const py = cy + vy * baseR;
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.closePath();
     ctx.fill();
 
-    // Subtle edge rim light
-    ctx.strokeStyle = "rgba(240, 235, 215, 0.35)";
-    ctx.lineWidth = Math.max(1.0, toExportPx(1.2));
+    // Rocky surface facets / impact craters
+    const drawCrater = (ox: number, oy: number, cr: number) => {
+      const craterX = cx + toExportPx(ox);
+      const craterY = cy + toExportPx(oy);
+      const rPx = toExportPx(cr);
+      ctx.beginPath();
+      ctx.arc(craterX, craterY, rPx, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(25, 24, 20, 0.45)";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(235, 230, 215, 0.35)";
+      ctx.lineWidth = Math.max(1.0, toExportPx(1.0));
+      ctx.beginPath();
+      ctx.arc(craterX, craterY, rPx, -Math.PI * 0.75, Math.PI * 0.15);
+      ctx.stroke();
+    };
+
+    drawCrater(-25, -20, 18);
+    drawCrater(20, 15, 14);
+    drawCrater(-10, 35, 10);
+    drawCrater(40, -25, 11);
+
+    // Rim highlight on illuminated rocky edge
+    ctx.strokeStyle = "rgba(255, 250, 235, 0.45)";
+    ctx.lineWidth = Math.max(1.0, toExportPx(1.5));
     ctx.beginPath();
-    ctx.arc(cx, cy, radius, -Math.PI * 0.65, Math.PI * 0.35);
+    ctx.arc(cx, cy, baseR * 0.98, -Math.PI * 0.75, -Math.PI * 0.05);
     ctx.stroke();
   }
 

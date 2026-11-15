@@ -105,7 +105,7 @@ export async function drawShareCard(
   const heroPath = isGalaxy
     ? "/share/hero/hero-galaxy.png"
     : isAsteroid
-    ? "/share/hero/hero-planet.png"
+    ? "/share/hero/hero-asteroid.png"
     : isDwarf
     ? "/share/hero/hero-dwarf.png"
     : !isRegion
