@@ -20,7 +20,8 @@ import {
 import { drawLogoMark } from "./mark";
 import { loadShareCardFonts } from "./fonts";
 import { createBlurredBackground, drawCornerSlabs } from "./slabs";
-import { drawStarFlare, drawRegionBoundaryMap } from "./hero";
+import { drawStarFlare, drawRegionBoundaryMap, drawGalaxyHero, drawAsteroidHero } from "./hero";
+import type { TargetCategory } from "@/types/sky";
 
 /** Set to true by default to match the dark Canva QR tile with light modules */
 export const QR_INVERTED = true;
@@ -69,24 +70,53 @@ export async function drawShareCard(
   canvas.width = CANVAS_WIDTH;
   canvas.height = CANVAS_HEIGHT;
 
-  const isRegion = data.selection.kind === "region";
+  const category: TargetCategory =
+    data.selection.kind === "region"
+      ? "region"
+      : data.selection.kind === "object"
+      ? data.selection.category || "object"
+      : "star";
+
+  const isRegion = category === "region";
+  const isGalaxy = category === "galaxy";
+  const isAsteroid = category === "asteroid";
+  const isDwarf = category === "dwarf";
+
   const starBv = !isRegion && "bv" in data.selection ? (data.selection.bv ?? null) : null;
   const starMag = !isRegion && "mag" in data.selection ? (data.selection.mag ?? null) : null;
-  const isSlateStar = !isRegion && starBv !== null && starBv < 0.3;
+  const isSlateStar = !isRegion && (isDwarf || (starBv !== null && starBv < 0.3));
 
-  // Variant selection: region -> graphite, blue-white star -> slate, gold star -> gold
-  const variant: "graphite" | "slate" | "gold" = isRegion
-    ? "graphite"
-    : isSlateStar
-    ? "slate"
-    : "gold";
+  // Variant selection: region -> graphite, galaxy -> galaxy, asteroid -> planet, blue-white/dwarf -> slate, gold star -> gold
+  let variant: "graphite" | "slate" | "gold" | "galaxy" | "planet";
+  if (isRegion) {
+    variant = "graphite";
+  } else if (isGalaxy) {
+    variant = "galaxy";
+  } else if (isAsteroid) {
+    variant = "planet";
+  } else if (isSlateStar) {
+    variant = "slate";
+  } else {
+    variant = "gold";
+  }
 
   const variantColors = CARD_COLORS[variant];
 
-  // 1. Load fonts and texture image concurrently
-  const [fontStatus, textureImage] = await Promise.all([
+  const heroPath = isGalaxy
+    ? "/share/hero/hero-galaxy.png"
+    : isAsteroid
+    ? "/share/hero/hero-planet.png"
+    : isDwarf
+    ? "/share/hero/hero-dwarf.png"
+    : !isRegion
+    ? "/share/hero/hero-star.png"
+    : null;
+
+  // 1. Load fonts, background texture image and hero image concurrently
+  const [fontStatus, textureImage, heroImage] = await Promise.all([
     loadShareCardFonts(),
     loadTextureImage(variantColors.texturePath).catch(() => null),
+    heroPath ? loadTextureImage(heroPath).catch(() => null) : Promise.resolve(null),
   ]);
 
   // 2. Base solid ground (#111111)
@@ -294,7 +324,7 @@ export async function drawShareCard(
 
   // 14. Hero Artwork (Left side, only if not fixture mode)
   if (!data.isFixture) {
-    if (data.selection.kind === "region") {
+    if (isRegion && data.selection.kind === "region") {
       // Find polygons for this region
       const abbr = data.selection.abbr;
       const targetRings = data.constellationPolygons?.[abbr] ?? [];
@@ -317,6 +347,10 @@ export async function drawShareCard(
         targetPolygons: targetRings as [number, number][][],
         allBoundaries: allBoundariesList,
       });
+    } else if (isGalaxy) {
+      drawGalaxyHero(ctx, heroImage);
+    } else if (isAsteroid) {
+      drawAsteroidHero(ctx, heroImage);
     } else {
       drawStarFlare(ctx, {
         bv: starBv,

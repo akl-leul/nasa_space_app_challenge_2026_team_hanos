@@ -84,3 +84,7 @@ MJY_SR_TO_UJY_FACTOR = 23.5045  # uJy = MJy/sr * 23.5045 * (solid_angle_arcsec2)
 
 # All-Sky Cube folder under .../dr1/hips5_cube/ (IRSA user guide and tutorials: hips_20261026). Override with HANOS_HIPS_FOLDER.
 HIPS_CUBE_FOLDER = os.environ.get("HANOS_HIPS_FOLDER", "hips_20261026")
+
+# Experimental, NOT yet validated against IRSA's cutouts: read frame pixels straight from the S3 mirror (clients/s3_cutout.py).
+# Off by default; any failure falls back to the IRSA cutout service. Enable with HANOS_S3_CUTOUTS=1 only after comparing results.
+S3_CUTOUTS = os.environ.get("HANOS_S3_CUTOUTS", "0").strip().lower() in ("1", "true", "yes", "on")

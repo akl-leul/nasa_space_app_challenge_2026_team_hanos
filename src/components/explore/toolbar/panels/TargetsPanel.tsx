@@ -66,7 +66,7 @@ export function TargetsPanel() {
       setActiveTarget(resolved);
       setDockOpen(true);
       setActivePanel(null);
-      flyTo(resolved.ra, resolved.dec, 5.0);
+      flyTo(resolved.ra, resolved.dec, 30.0);
       patch(id, { ...(rows[id] ?? {}), status: rows[id]?.frames != null ? "pass" : "idle", resolved });
     } catch (e) {
       patch(id, { status: "fail", error: e instanceof Error ? e.message : String(e) });

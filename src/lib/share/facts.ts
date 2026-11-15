@@ -141,6 +141,108 @@ export function computeCardFacts(
     };
   }
 
+  // Object Selection (Galaxies, Asteroids, Brown Dwarfs, Searched Stars)
+  if (selection.kind === "object") {
+    const title = selection.name.toUpperCase();
+    const facts: FactLine[] = [];
+    const cat = selection.category || "object";
+
+    if (cat === "galaxy") {
+      facts.push({
+        label: "Object Type",
+        value: "Galaxy / Deep-Sky Extragalactic Source",
+      });
+      if (selection.constellation) {
+        facts.push({
+          label: "Constellation",
+          value: `${selection.constellation.name} (${selection.constellation.id})`,
+        });
+      }
+      facts.push({
+        label: "Catalogue Source",
+        value: "SIMBAD / Extragalactic Database",
+      });
+      facts.push({
+        label: "SPHEREx Survey",
+        value: "All-Sky 102-Channel Infrared Observation",
+      });
+    } else if (cat === "asteroid") {
+      facts.push({
+        label: "Object Type",
+        value: "Solar System Minor Planet / Asteroid",
+      });
+      facts.push({
+        label: "Trajectory Model",
+        value: "JPL Horizons Orbit Prediction",
+      });
+      facts.push({
+        label: "Archive Query",
+        value: "IRSA MOST Moving Object Search",
+      });
+      facts.push({
+        label: "SPHEREx Crossing",
+        value: "Time-domain spectral exposure match",
+      });
+    } else if (cat === "dwarf") {
+      facts.push({
+        label: "Object Type",
+        value: "Substellar Brown Dwarf (Cold Infrared)",
+      });
+      if (selection.pmra !== undefined && selection.pmdec !== undefined) {
+        const pmArcsec = Math.hypot(selection.pmra, selection.pmdec) / 1000.0;
+        facts.push({
+          label: "Proper Motion",
+          value: `${pmArcsec.toFixed(2)}″/yr (High proper motion)`,
+        });
+      }
+      if (selection.parallaxMas) {
+        const distLy = (3261.56 / selection.parallaxMas).toFixed(1);
+        facts.push({
+          label: "Distance",
+          value: `${distLy} light years (${selection.parallaxMas.toFixed(1)} mas)`,
+        });
+      } else if (selection.detail) {
+        facts.push({
+          label: "Details",
+          value: selection.detail.slice(0, 50),
+        });
+      }
+      facts.push({
+        label: "Observation Epoch",
+        value: `Epoch ${selection.epoch ? selection.epoch.toFixed(1) : "2026.0"}`,
+      });
+    } else {
+      // General star or resolved target
+      facts.push({
+        label: "Object Type",
+        value: selection.detail ? selection.detail.split(",")[0] : "Stellar Source",
+      });
+      if (selection.pmra !== undefined && selection.pmdec !== undefined && (selection.pmra !== 0 || selection.pmdec !== 0)) {
+        const pmArcsec = Math.hypot(selection.pmra, selection.pmdec) / 1000.0;
+        facts.push({
+          label: "Proper Motion",
+          value: `${pmArcsec.toFixed(2)}″/yr`,
+        });
+      }
+      if (selection.constellation) {
+        facts.push({
+          label: "Constellation",
+          value: `${selection.constellation.name} (${selection.constellation.id})`,
+        });
+      }
+      facts.push({
+        label: "Observation Epoch",
+        value: `Epoch ${selection.epoch ? selection.epoch.toFixed(1) : "2026.0"}`,
+      });
+    }
+
+    return {
+      title,
+      coordinatesSexagesimal: formatCoordinatesSexagesimal(selection.ra, selection.dec),
+      facts: facts.slice(0, 4),
+    };
+  }
+
   // Star Selection
   const title = (selection.name || `HIP ${selection.id}`).toUpperCase();
   const facts: FactLine[] = [];

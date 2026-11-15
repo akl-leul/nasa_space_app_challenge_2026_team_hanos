@@ -1,23 +1,31 @@
 <div align="center">
+  <h1>HANOS</h1>
+  <p><strong>See the sky change. Real SPHEREx data, in time order.</strong></p>
+  <p>An open web tool for exploring NASA SPHEREx observations over time, spotting objects that move or change brightness, and checking the evidence behind every claim.</p>
 
-# HANOS
+  <p>
+    <a href="https://www.spaceappschallenge.org/2026/challenges/planet-x-and-spherex/"><img src="https://img.shields.io/badge/NASA%20Space%20Apps-2026-0E324F?style=flat-square" alt="NASA Space Apps 2026" /></a>
+    <a href="https://www.spaceappschallenge.org/2026/challenges/planet-x-and-spherex/"><img src="https://img.shields.io/badge/Challenge-Planet%20X%20%26%20SPHEREx-1F48FF?style=flat-square" alt="Challenge" /></a>
+    <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-16-111111?style=flat-square&logo=nextdotjs" alt="Next.js 16" /></a>
+    <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19-111111?style=flat-square&logo=react" alt="React 19" /></a>
+    <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-strict-111111?style=flat-square&logo=typescript" alt="TypeScript strict" /></a>
+    <a href="https://fastapi.tiangolo.com"><img src="https://img.shields.io/badge/FastAPI-Astropy-111111?style=flat-square&logo=fastapi" alt="FastAPI" /></a>
+    <a href="#licence"><img src="https://img.shields.io/badge/Licence-MIT-1F48FF?style=flat-square" alt="Licence: MIT" /></a>
+  </p>
 
-### See the sky change. Real SPHEREx data, in time order.
+  <p>
+    <strong>Live site: <a href="https://hanos.surf">hanos.surf</a></strong> &middot; Addis Ababa local event, 14 to 15 November 2026
+  </p>
 
-**An open web tool for exploring NASA SPHEREx observations over time, spotting objects that move or change brightness, and checking the evidence behind every claim.**
-
-[![NASA Space Apps 2026](https://img.shields.io/badge/NASA%20Space%20Apps-2026-0E324F?style=flat-square)](https://www.spaceappschallenge.org/2026/challenges/planet-x-and-spherex/)
-[![Challenge](https://img.shields.io/badge/Challenge-Planet%20X%20%26%20SPHEREx-1F48FF?style=flat-square)](https://www.spaceappschallenge.org/2026/challenges/planet-x-and-spherex/)
-[![Next.js 16](https://img.shields.io/badge/Next.js-16-111111?style=flat-square&logo=nextdotjs)](https://nextjs.org)
-[![React 19](https://img.shields.io/badge/React-19-111111?style=flat-square&logo=react)](https://react.dev)
-[![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-111111?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-Astropy-111111?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
-[![Licence: MIT](https://img.shields.io/badge/Licence-MIT-1F48FF?style=flat-square)](#licence)
-
-**Live site: [hanos.surf](https://hanos.surf)** · Addis Ababa local event, 14 to 15 November 2026
-
-[Overview](#overview) · [Features](#features) · [Quick start](#quick-start) · [Architecture](#architecture) · [API](#api-reference) · [Science rules](#scientific-rules) · [Credits](#credits-and-acknowledgements)
-
+  <p>
+    <a href="#overview">Overview</a> &middot;
+    <a href="#features">Features</a> &middot;
+    <a href="#quick-start">Quick start</a> &middot;
+    <a href="#architecture">Architecture</a> &middot;
+    <a href="#api-reference">API</a> &middot;
+    <a href="#science-rules">Science rules</a> &middot;
+    <a href="#credits-and-acknowledgements">Credits</a>
+  </p>
 </div>
 
 > **Working name:** the documents in `docs/` sometimes call the project *COSMIC PULSE*. HANOS and COSMIC PULSE are the same project.
@@ -164,7 +172,7 @@ The explorer keeps its state in the address bar, so any view can be linked:
 |---|---|---|
 | `ra`, `dec` | View centre in degrees (J2000). | `ra=269.45&dec=4.77` |
 | `fov` | Field of view in degrees. | `fov=5.0` |
-| `sel` | A selection: `star:<id>` or `region:<abbreviation>`. | `sel=region:ORI` |
+| `sel` | A selection: `star:<id>`, `region:<abbr>`, or `object:<name>`. | `sel=object:WISE%200855-0714` |
 | `target` | A name to resolve through SIMBAD and open in the dock. | `target=Barnard's%20Star` |
 | `embed=1` | Embedded mode for an `<iframe>`. | `embed=1` |
 
@@ -726,7 +734,7 @@ Stated here so nobody has to discover them.
 | Member | Role |
 |---|---|
 | Afomiya G. Mulu | Astronomy Researcher |
-| Biniam B. Bittala | Data Engineer and Scientific Analyst |
+| Biniam B. Bittala | Story telling and Scientific Analysis |
 | Melat G. Daniel | Visual Design and UI/UX |
 | Barok M. Lakew | UI/UX and Frontend Engineer |
 | Biruk D. Tegene | Sonification and Audio Development |
@@ -814,5 +822,3 @@ The landing page is a port of the team's own page at github.com/melat320/hanossu
 *A sky full of observations. A chance to see what changes.*
 
 </div>
-#   n a s a _ s p a c e _ a p p _ c h a l l e n g e _ 2 0 2 6 _ t e a m _ h a n o s  
- 

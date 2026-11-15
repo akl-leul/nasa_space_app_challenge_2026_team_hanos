@@ -184,6 +184,10 @@ export function TimeLapseDock({
     facts.push(`Constellation ${selection.abbr}`);
     if (selection.areaSqDeg) facts.push(`${Math.round(selection.areaSqDeg)} square degrees`);
   }
+  if (selection?.kind === "object") {
+    if (selection.category) facts.push(selection.category.toUpperCase());
+    if (selection.constellation) facts.push(`in ${selection.constellation.name}`);
+  }
   if (activeTarget?.detail) facts.push(activeTarget.detail);
 
   const v = snap ? verdict(snap) : null;
@@ -320,7 +324,7 @@ export function TimeLapseDock({
               </svg>
             )}
 
-            {/* Centroid-locked Target Label (8px font, exact sample image tracking)
+            {/* Centroid-locked Target Label (8px font, exact sample image tracking) */}
             {f && targetX != null && targetY != null && (
               <div
                 style={{
@@ -341,7 +345,7 @@ export function TimeLapseDock({
                   {cleanName} {!detectedHere && f.expected ? "(pred)" : ""}
                 </span>
               </div>
-            )} */}
+            )}
 
             {!imgUrl && (
               <div className="absolute inset-0 flex items-center justify-center text-center text-cream/60 px-6">

@@ -115,12 +115,22 @@ export const CARD_COLORS = {
   slate: {
     title: "#EAEAEA",
     facts: "#EBEBEB",
-    texturePath: "/share/tex-star-slate.webp",
+    texturePath: "/share/tex-dwarf-slate.webp",
   },
   graphite: {
     title: "#EAEAEA",
     facts: "#EBEBEB",
     texturePath: "/share/tex-region-graphite.webp",
+  },
+  galaxy: {
+    title: "#F0EBF5",
+    facts: "#EBE6F2",
+    texturePath: "/share/tex-galaxy-violet.webp",
+  },
+  planet: {
+    title: "#EAEAE5",
+    facts: "#EBEBE5",
+    texturePath: "/share/tex-planet-olive.webp",
   },
 };
 

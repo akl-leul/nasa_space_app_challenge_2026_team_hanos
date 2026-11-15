@@ -40,6 +40,8 @@ export function SelectionVisualizer({
     ? "No celestial target selected"
     : selection.kind === "star"
     ? `Selected star ${selection.name || `HIP ${selection.id}`}, magnitude ${selection.mag.toFixed(1)}. Info and Share available.`
+    : selection.kind === "object"
+    ? `Selected ${selection.name} (${selection.category || "object"}). Info and Share available.`
     : `Selected region ${selection.name}. Play its sound, Info and Share available.`;
 
   // Handle Play click (region only)

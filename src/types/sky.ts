@@ -24,6 +24,8 @@ export interface StarRecord {
   con: string;
 }
 
+export type TargetCategory = "star" | "dwarf" | "galaxy" | "asteroid" | "object" | "region";
+
 export type SkySelection =
   | {
       kind: "star";
@@ -34,6 +36,30 @@ export type SkySelection =
       mag: number;
       bv?: number;
       constellation?: ConstellationInfo | null;
+      category?: TargetCategory;
+      detail?: string;
+      objectType?: string | null;
+      pmra?: number;
+      pmdec?: number;
+      epoch?: number;
+      parallaxMas?: number | null;
+    }
+  | {
+      kind: "object";
+      id: string;
+      name: string;
+      ra: number;
+      dec: number;
+      category: TargetCategory;
+      mag?: number;
+      bv?: number;
+      detail?: string;
+      constellation?: ConstellationInfo | null;
+      objectType?: string | null;
+      pmra?: number;
+      pmdec?: number;
+      epoch?: number;
+      parallaxMas?: number | null;
     }
   | {
       kind: "region";
@@ -43,6 +69,7 @@ export type SkySelection =
       dec: number;
       areaSqDeg?: number;
       constellation: ConstellationInfo;
+      category?: "region";
     };
 
 export interface SkySelectionData {

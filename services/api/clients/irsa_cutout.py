@@ -13,6 +13,7 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import io
+import logging
 from typing import Any, Dict
 
 import numpy as np
@@ -29,15 +30,62 @@ from ..astro.wcs_helper import (
     world_to_pixel0,
 )
 from ..cache import get_cached_cutout, set_cached_cutout
-from ..config import CUTOUTS_DIR
+from ..config import CUTOUTS_DIR, S3_CUTOUTS
 from .http import UpstreamError, fetch
 
-_ibe_sem = asyncio.Semaphore(5)  # be gentle with the public archive
+log = logging.getLogger("hanos.cutout")
+_ibe_sem = asyncio.Semaphore(5)  # IRSA's cutout service is the fallback path: be gentle with it
 
 
 def cutout_id(access_url: str, ra: float, dec: float, size_deg: float) -> str:
     key = f"{access_url}|{ra:.5f}|{dec:.5f}|{size_deg:.4f}"
     return hashlib.sha1(key.encode()).hexdigest()[:24]
+
+
+def assemble_cutout(ih, version, image, flags, variance, zodi, flags_header, wl_map, bw_map, epsf_name, zone, ra, dec):
+    """The compact record of one cutout, from already decoded planes. Shared by the IRSA service path and the S3 path, so
+    both produce exactly the same fields. ``zone`` is what ``find_nearest_zone`` returns (with the ``epsf`` stamp)."""
+    flag_names = parse_flag_keywords(flags_header)
+    wcs = sky_wcs(ih)
+    tx, ty = world_to_pixel0(wcs, ra, dec)
+
+    epsf_meta: Dict[str, Any] = {}
+    epsf = np.zeros((33, 33), dtype=np.float32)
+    if epsf_name == "EPSF" and zone is not None:
+        zone = dict(zone)
+        epsf = zone.pop("epsf")
+        xo, yo = cutout_to_original_pixel(tx, ty, ih)
+        epsf_meta = zone | {"original_pixel_x": round(xo, 2), "original_pixel_y": round(yo, 2)}
+
+    ix = int(np.clip(round(tx), 0, image.shape[1] - 1))
+    iy = int(np.clip(round(ty), 0, image.shape[0] - 1))
+    meta = {
+        "detector": int(ih["DETECTOR"]),
+        "obs_id": str(ih["OBSID"]),
+        "date_obs": str(ih["DATE-OBS"]),
+        "mjd_avg": float(ih["MJD-AVG"]),
+        "mjd_beg": float(ih["MJD-BEG"]),
+        "mjd_end": float(ih["MJD-END"]),
+        "bunit": str(ih["BUNIT"]),
+        "psf_fwhm_arcsec": float(ih["PSF_FWHM"]) if "PSF_FWHM" in ih else None,
+        "pipeline_version": str(version or "") or None,
+        "shape": [int(image.shape[0]), int(image.shape[1])],
+        "target_pixel": [round(tx, 3), round(ty, 3)],
+        "target_inside": bool(0 <= tx < image.shape[1] and 0 <= ty < image.shape[0]),
+        "wavelength_um": round(float(wl_map[iy, ix]), 5),
+        "bandwidth_um": round(float(bw_map[iy, ix]), 5),
+        "wavelength_span_um": [round(float(wl_map.min()), 5), round(float(wl_map.max()), 5)],
+        "pixel_solid_angle_arcsec2": round(pixel_solid_angle_arcsec2(wcs), 4),
+        "flags": summarize_flags(flags, flag_names),
+        "flag_counts_full_image": {k[5:]: int(v) for k, v in ih.items() if k.startswith("L2 N_")},
+        "epsf": epsf_meta,
+        "psf_extension": epsf_name,
+        "header_text": ih.tostring(sep="\n", endcard=False, padding=False),
+    }
+    rec = {"image": image, "flags": flags, "variance": variance, "wavelength": wl_map, "epsf": epsf, "meta": meta}
+    if zodi is not None:
+        rec["zodi"] = zodi
+    return rec
 
 
 def _parse_mef(content: bytes, ra: float, dec: float) -> Dict[str, Any]:
@@ -54,51 +102,21 @@ def _parse_mef(content: bytes, ra: float, dec: float) -> Dict[str, Any]:
         flags = np.array(hdul["FLAGS"].data, dtype=np.uint32)
         variance = np.array(hdul["VARIANCE"].data, dtype=np.float32)
         zodi = np.array(hdul["ZODI"].data, dtype=np.float32)
-        flag_names = parse_flag_keywords(hdul["FLAGS"].header)
 
         wcs = sky_wcs(ih)
         tx, ty = world_to_pixel0(wcs, ra, dec)
         wave_wcs = spectral_wcs(ih, hdul)
         wl_map, bw_map = wavelength_map(wave_wcs, image.shape)
 
-        epsf_meta: Dict[str, Any] = {}
-        epsf = np.zeros((33, 33), dtype=np.float32)
         epsf_name = "EPSF" if "EPSF" in names else ("PSF" if "PSF" in names else None)
+        zone = None
         if epsf_name == "EPSF":
             xo, yo = cutout_to_original_pixel(tx, ty, ih)
             zone = find_nearest_zone(xo, yo, hdul["EPSF"].data)
-            epsf = zone.pop("epsf")
-            epsf_meta = zone | {"original_pixel_x": round(xo, 2), "original_pixel_y": round(yo, 2)}
-
-        ix = int(np.clip(round(tx), 0, image.shape[1] - 1))
-        iy = int(np.clip(round(ty), 0, image.shape[0] - 1))
-        meta = {
-            "detector": int(ih["DETECTOR"]),
-            "obs_id": str(ih["OBSID"]),
-            "date_obs": str(ih["DATE-OBS"]),
-            "mjd_avg": float(ih["MJD-AVG"]),
-            "mjd_beg": float(ih["MJD-BEG"]),
-            "mjd_end": float(ih["MJD-END"]),
-            "bunit": str(ih["BUNIT"]),
-            "psf_fwhm_arcsec": float(ih["PSF_FWHM"]) if "PSF_FWHM" in ih else None,
-            "pipeline_version": str(hdul[0].header.get("VERSION", "")) or None,
-            "shape": [int(image.shape[0]), int(image.shape[1])],
-            "target_pixel": [round(tx, 3), round(ty, 3)],
-            "target_inside": bool(0 <= tx < image.shape[1] and 0 <= ty < image.shape[0]),
-            "wavelength_um": round(float(wl_map[iy, ix]), 5),
-            "bandwidth_um": round(float(bw_map[iy, ix]), 5),
-            "wavelength_span_um": [round(float(wl_map.min()), 5), round(float(wl_map.max()), 5)],
-            "pixel_solid_angle_arcsec2": round(pixel_solid_angle_arcsec2(wcs), 4),
-            "flags": summarize_flags(flags, flag_names),
-            "flag_counts_full_image": {k[5:]: int(v) for k, v in ih.items() if k.startswith("L2 N_")},
-            "epsf": epsf_meta,
-            "psf_extension": epsf_name,
-            "header_text": ih.tostring(sep="\n", endcard=False, padding=False),
-        }
-        return {
-            "image": image, "flags": flags, "variance": variance, "zodi": zodi,
-            "wavelength": wl_map, "epsf": epsf, "meta": meta,
-        }
+        rec = assemble_cutout(ih, hdul[0].header.get("VERSION", ""), image, flags, variance, zodi, hdul["FLAGS"].header,
+                              wl_map, bw_map, epsf_name, zone, ra, dec)
+        rec["meta"]["cutout_source"] = "IRSA cutout service"
+        return rec
 
 
 def _load_npz(path) -> Dict[str, np.ndarray]:
@@ -117,21 +135,35 @@ async def get_cutout(access_url: str, ra: float, dec: float, size_deg: float) ->
                     is_cached=True)
         return data
 
-    url = f"{access_url}?center={ra:.6f},{dec:.6f}&size={size_deg:.5f}"
-    async with _ibe_sem:
-        resp = await fetch(url, timeout=150.0, tries=6, validate=lambda r: r.content[:6] == b"SIMPLE",
-                           allow_html=False)
+    parsed = None
     try:
-        parsed = await asyncio.to_thread(_parse_mef, resp.content, ra, dec)
-    except Exception as exc:
-        raise UpstreamError(f"Cutout could not be read: {exc}", url=url)
+        if not S3_CUTOUTS:
+            raise RuntimeError("S3 cutouts are switched off (HANOS_S3_CUTOUTS=0)")
+        # read the pixels straight from the S3 mirror (about 1.5 MB, a few seconds) instead of IRSA's cutout service
+        from .s3_cutout import read_cutout_s3
+
+        parsed = await read_cutout_s3(access_url, ra, dec, size_deg)
+        raw_bytes = int(parsed.pop("bytes_read"))
+        parsed.pop("requests", None)
+    except Exception as exc:  # anything unexpected about the file or the mirror: use IRSA's cutout service instead
+        log.warning("S3 cutout failed (%s: %s); using the IRSA cutout service", type(exc).__name__, str(exc)[:160])
+        parsed = None
+
+    if parsed is None:
+        url = f"{access_url}?center={ra:.6f},{dec:.6f}&size={size_deg:.5f}"
+        async with _ibe_sem:
+            resp = await fetch(url, timeout=150.0, tries=6, validate=lambda r: r.content[:6] == b"SIMPLE",
+                               allow_html=False)
+        try:
+            parsed = await asyncio.to_thread(_parse_mef, resp.content, ra, dec)
+        except Exception as exc:
+            raise UpstreamError(f"Cutout could not be read: {exc}", url=url)
+        raw_bytes = len(resp.content)
 
     path = CUTOUTS_DIR / f"{cid}.npz"
-    np.savez_compressed(
-        path, image=parsed["image"], flags=parsed["flags"], variance=parsed["variance"],
-        zodi=parsed["zodi"], wavelength=parsed["wavelength"], epsf=parsed["epsf"],
-    )
+    arrays = {k: parsed[k] for k in ("image", "flags", "variance", "zodi", "wavelength", "epsf") if k in parsed}
+    np.savez_compressed(path, **arrays)
     compact = path.stat().st_size
-    set_cached_cutout(cid, access_url, ra, dec, size_deg, path.name, parsed["meta"], len(resp.content), compact)
-    parsed.update(cutout_id=cid, raw_bytes=len(resp.content), compact_bytes=compact, is_cached=False)
+    set_cached_cutout(cid, access_url, ra, dec, size_deg, path.name, parsed["meta"], raw_bytes, compact)
+    parsed.update(cutout_id=cid, raw_bytes=raw_bytes, compact_bytes=compact, is_cached=False)
     return parsed

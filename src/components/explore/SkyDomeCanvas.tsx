@@ -157,6 +157,7 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
     const svgStarRingRef = useRef<SVGCircleElement | null>(null);
     const svgStarLeaderRef = useRef<SVGPathElement | null>(null);
     const svgHoverStarRingRef = useRef<SVGCircleElement | null>(null);
+    const svgTargetReticleRef = useRef<SVGGElement | null>(null);
     const capsuleElRef = useRef<HTMLElement | null>(null);
 
     // References to keep Three.js scene objects
@@ -420,6 +421,7 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
       const starRingEl = svgStarRingRef.current;
       const starLeaderEl = svgStarLeaderRef.current;
       const hoverStarRingEl = svgHoverStarRingRef.current;
+      const targetReticleEl = svgTargetReticleRef.current;
 
       const getCapsuleEl = (): HTMLElement | null => {
         if (capsuleElRef.current && capsuleElRef.current.isConnected) {
@@ -435,8 +437,8 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
       const curSelection = selectionRef.current;
       const curHorizonQuat = isHorizon && celestialGroupRef.current ? celestialGroupRef.current.quaternion : undefined;
 
-      // 1. STAR SELECTION VISUALIZER (selection-star.png)
-      if (curSelection && curSelection.kind === "star") {
+      // 1. STAR & TARGET OBJECT SELECTION VISUALIZER
+      if (curSelection && (curSelection.kind === "star" || curSelection.kind === "object")) {
         const capsuleW = 48;
         const capsuleH = 88;
         const margin = 16;
@@ -459,7 +461,10 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
             const sy = (-_tempV3.y * 0.5 + 0.5) * h;
 
             // Dotted circle ring: diameter ~52px (radius ~26px), scaled slightly with magnitude (min 18px radius)
-            const brightnessFactor = Math.max(0.85, Math.min(1.25, 1.2 - 0.05 * curSelection.mag));
+            const brightnessFactor =
+              curSelection.kind === "star"
+                ? Math.max(0.85, Math.min(1.25, 1.2 - 0.05 * curSelection.mag))
+                : 1.0;
             const ringRadius = Math.round(25 * brightnessFactor);
 
             if (sx >= -ringRadius && sx <= w + ringRadius && sy >= -ringRadius && sy <= h + ringRadius) {
@@ -468,6 +473,57 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
                 starRingEl.setAttribute("cy", sy.toFixed(1));
                 starRingEl.setAttribute("r", ringRadius.toString());
                 starRingEl.style.display = "block";
+              }
+
+              if (targetReticleEl) {
+                const chTop = document.getElementById("reticle-ch-top");
+                const chBottom = document.getElementById("reticle-ch-bottom");
+                const chLeft = document.getElementById("reticle-ch-left");
+                const chRight = document.getElementById("reticle-ch-right");
+                const chCenter = document.getElementById("reticle-center");
+                const badgeBg = document.getElementById("reticle-badge-bg");
+                const badgeText = document.getElementById("reticle-badge-text");
+
+                chTop?.setAttribute("x1", sx.toFixed(1));
+                chTop?.setAttribute("y1", (sy - ringRadius - 6).toFixed(1));
+                chTop?.setAttribute("x2", sx.toFixed(1));
+                chTop?.setAttribute("y2", (sy - ringRadius).toFixed(1));
+
+                chBottom?.setAttribute("x1", sx.toFixed(1));
+                chBottom?.setAttribute("y1", (sy + ringRadius).toFixed(1));
+                chBottom?.setAttribute("x2", sx.toFixed(1));
+                chBottom?.setAttribute("y2", (sy + ringRadius + 6).toFixed(1));
+
+                chLeft?.setAttribute("x1", (sx - ringRadius - 6).toFixed(1));
+                chLeft?.setAttribute("y1", sy.toFixed(1));
+                chLeft?.setAttribute("x2", (sx - ringRadius).toFixed(1));
+                chLeft?.setAttribute("y2", sy.toFixed(1));
+
+                chRight?.setAttribute("x1", (sx + ringRadius).toFixed(1));
+                chRight?.setAttribute("y1", sy.toFixed(1));
+                chRight?.setAttribute("x2", (sx + ringRadius + 6).toFixed(1));
+                chRight?.setAttribute("y2", sy.toFixed(1));
+
+                chCenter?.setAttribute("cx", sx.toFixed(1));
+                chCenter?.setAttribute("cy", sy.toFixed(1));
+
+                const cat = (curSelection.category || (curSelection.kind === "star" ? "star" : "target")).toUpperCase();
+                const nameStr = (curSelection.name || "").toUpperCase();
+                const label = nameStr ? `${nameStr} · ${cat}` : cat;
+
+                if (badgeText) {
+                  badgeText.textContent = label;
+                  badgeText.setAttribute("x", sx.toFixed(1));
+                  badgeText.setAttribute("y", (sy - ringRadius - 12).toFixed(1));
+                }
+                if (badgeBg && badgeText) {
+                  const textW = Math.max(50, label.length * 5.6 + 14);
+                  badgeBg.setAttribute("x", (sx - textW / 2).toFixed(1));
+                  badgeBg.setAttribute("y", (sy - ringRadius - 20).toFixed(1));
+                  badgeBg.setAttribute("width", textW.toFixed(1));
+                  badgeBg.setAttribute("height", "15");
+                }
+                targetReticleEl.style.display = "block";
               }
 
               // Dashed elbow leader line: horizontal run -> diagonal rise -> horizontal into capsule
@@ -506,15 +562,18 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
               }
             } else {
               if (starRingEl) starRingEl.style.display = "none";
+              if (targetReticleEl) targetReticleEl.style.display = "none";
               capX = Math.max(margin, Math.min(w - capsuleW - margin, Math.round(sx)));
               capY = Math.max(margin, Math.min(h - capsuleH - margin, Math.round(sy)));
             }
           } else {
             if (starRingEl) starRingEl.style.display = "none";
+            if (targetReticleEl) targetReticleEl.style.display = "none";
           }
         } else {
           // Behind camera
           if (starRingEl) starRingEl.style.display = "none";
+          if (targetReticleEl) targetReticleEl.style.display = "none";
           capX = w - capsuleW - margin;
           capY = Math.round(h / 2 - capsuleH / 2);
         }
@@ -533,6 +592,7 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
       }
       // 2. REGION SELECTION VISUALIZER (selection-region.png)
       else if (curSelection && curSelection.kind === "region" && constellationPolygons) {
+        if (targetReticleEl) targetReticleEl.style.display = "none";
         const capsuleW = 48;
         const capsuleH = 128;
         const margin = 16;
@@ -686,6 +746,7 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
 
         if (starRingEl) starRingEl.style.display = "none";
         if (starLeaderEl) starLeaderEl.style.display = "none";
+        if (targetReticleEl) targetReticleEl.style.display = "none";
       }
       else {
         // No selection active -> hide all selection visualizer elements
@@ -693,6 +754,7 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
         if (regionConnectorEl) regionConnectorEl.style.display = "none";
         if (starRingEl) starRingEl.style.display = "none";
         if (starLeaderEl) starLeaderEl.style.display = "none";
+        if (targetReticleEl) targetReticleEl.style.display = "none";
         if (capsuleEl) capsuleEl.style.display = "none";
       }
 
@@ -1669,6 +1731,24 @@ export const SkyDomeCanvas = forwardRef<SkyDomeCanvasHandle, SkyDomeCanvasProps>
             strokeLinecap="round"
             style={{ display: "none" }}
           />
+          {/* Astronomical Target Reticle & Badge */}
+          <g ref={svgTargetReticleRef} id="svg-target-reticle" style={{ display: "none" }}>
+            <line id="reticle-ch-top" stroke="#1F48FF" strokeWidth="1.5" />
+            <line id="reticle-ch-bottom" stroke="#1F48FF" strokeWidth="1.5" />
+            <line id="reticle-ch-left" stroke="#1F48FF" strokeWidth="1.5" />
+            <line id="reticle-ch-right" stroke="#1F48FF" strokeWidth="1.5" />
+            <circle id="reticle-center" r="3" fill="none" stroke="#1F48FF" strokeWidth="1.5" />
+            <rect id="reticle-badge-bg" rx="2" ry="2" fill="#111111" stroke="#F5F3ED" strokeOpacity="0.4" strokeWidth="1" />
+            <text
+              id="reticle-badge-text"
+              fill="#F5F3ED"
+              fontSize="8"
+              fontFamily="monospace"
+              textAnchor="middle"
+              alignmentBaseline="middle"
+              letterSpacing="0.06em"
+            />
+          </g>
         </svg>
 
         {/* HTML Overlays (Pre-rendered DOM nodes positioned via translate3d) */}

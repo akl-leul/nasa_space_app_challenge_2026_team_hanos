@@ -312,3 +312,103 @@ export function drawRegionBoundaryMap(
 
   ctx.restore();
 }
+
+/**
+ * Draws the Galaxy Hero Artwork (spiral galaxy arms and radiant core).
+ */
+export function drawGalaxyHero(
+  ctx: CanvasRenderingContext2D,
+  heroImg?: HTMLImageElement | null
+): void {
+  const cx = toExportPx(LAYOUT_DESIGN.hero.starCenter.x);
+  const cy = toExportPx(LAYOUT_DESIGN.hero.starCenter.y);
+
+  ctx.save();
+
+  if (heroImg && heroImg.naturalWidth > 0) {
+    const targetW = toExportPx(350);
+    const aspect = heroImg.naturalWidth / heroImg.naturalHeight;
+    const targetH = targetW / aspect;
+    ctx.drawImage(heroImg, cx - targetW / 2, cy - targetH / 2, targetW, targetH);
+  } else {
+    // Procedural spiral galaxy
+    const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, toExportPx(140));
+    coreGrad.addColorStop(0, "#FFFFFF");
+    coreGrad.addColorStop(0.2, "rgba(235, 220, 255, 0.85)");
+    coreGrad.addColorStop(0.5, "rgba(180, 140, 240, 0.35)");
+    coreGrad.addColorStop(1, "rgba(100, 60, 180, 0)");
+    ctx.fillStyle = coreGrad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, toExportPx(140), 0, Math.PI * 2);
+    ctx.fill();
+
+    // Spiral arms
+    ctx.strokeStyle = "rgba(220, 200, 255, 0.4)";
+    ctx.lineWidth = Math.max(1.0, toExportPx(1.5));
+    for (let arm = 0; arm < 2; arm++) {
+      ctx.beginPath();
+      const armOffset = arm * Math.PI;
+      for (let theta = 0.5; theta < 6.5; theta += 0.1) {
+        const r = toExportPx(12) * Math.exp(0.35 * theta);
+        const x = cx + r * Math.cos(theta + armOffset);
+        const y = cy + r * Math.sin(theta + armOffset) * 0.65; // inclined view
+        if (theta === 0.5) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+  }
+
+  ctx.restore();
+}
+
+/**
+ * Draws the Asteroid / Minor Planet Hero Artwork.
+ */
+export function drawAsteroidHero(
+  ctx: CanvasRenderingContext2D,
+  heroImg?: HTMLImageElement | null
+): void {
+  const cx = toExportPx(LAYOUT_DESIGN.hero.starCenter.x);
+  const cy = toExportPx(LAYOUT_DESIGN.hero.starCenter.y);
+
+  ctx.save();
+
+  if (heroImg && heroImg.naturalWidth > 0) {
+    const targetW = toExportPx(340);
+    const aspect = heroImg.naturalWidth / heroImg.naturalHeight;
+    const targetH = targetW / aspect;
+    ctx.drawImage(heroImg, cx - targetW / 2, cy - targetH / 2, targetW, targetH);
+  } else {
+    // Procedural minor planet / asteroid body
+    const radius = toExportPx(95);
+
+    // Ambient body gradient
+    const bodyGrad = ctx.createRadialGradient(
+      cx - radius * 0.35,
+      cy - radius * 0.35,
+      radius * 0.1,
+      cx,
+      cy,
+      radius
+    );
+    bodyGrad.addColorStop(0, "#D5D2C8");
+    bodyGrad.addColorStop(0.5, "#828076");
+    bodyGrad.addColorStop(0.85, "#383630");
+    bodyGrad.addColorStop(1, "#181714");
+
+    ctx.fillStyle = bodyGrad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Subtle edge rim light
+    ctx.strokeStyle = "rgba(240, 235, 215, 0.35)";
+    ctx.lineWidth = Math.max(1.0, toExportPx(1.2));
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, -Math.PI * 0.65, Math.PI * 0.35);
+    ctx.stroke();
+  }
+
+  ctx.restore();
+}

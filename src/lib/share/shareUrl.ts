@@ -18,6 +18,9 @@ export function getDefaultFovForSelection(selection: SkySelection): number {
     const computed = 2.2 * angularRadius;
     return Math.round(Math.max(20.0, Math.min(100.0, computed)) * 10) / 10;
   }
+  if (selection.kind === "object" && selection.category === "galaxy") {
+    return 20.0;
+  }
   return 12.0;
 }
 
@@ -43,7 +46,12 @@ export function buildShareUrl(selection: SkySelection, explicitOrigin?: string):
   const raStr = selection.ra.toFixed(2);
   const decStr = selection.dec.toFixed(2);
   const fovStr = fov.toFixed(1);
-  const selStr = selection.kind === "region" ? `region:${selection.abbr}` : `star:${selection.id}`;
+  const selStr =
+    selection.kind === "region"
+      ? `region:${selection.abbr}`
+      : selection.kind === "object"
+      ? `object:${selection.name}`
+      : `star:${selection.id}`;
 
   return `${origin}/explore?ra=${raStr}&dec=${decStr}&fov=${fovStr}&sel=${encodeURIComponent(selStr)}`;
 }
@@ -53,7 +61,7 @@ export function buildShareUrl(selection: SkySelection, explicitOrigin?: string):
  * Format: hanos-<slug>-<abbr-or-hip>.png
  */
 export function generateCardFilename(selection: SkySelection): string {
-  const rawName = selection.name || (selection.kind === "star" ? `hip-${selection.id}` : selection.abbr);
+  const rawName = selection.name || (selection.kind === "star" ? `hip-${selection.id}` : selection.kind === "region" ? selection.abbr : "target");
   const slug = rawName
     .toLowerCase()
     .normalize("NFD")
@@ -61,6 +69,11 @@ export function generateCardFilename(selection: SkySelection): string {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
-  const idSuffix = selection.kind === "region" ? selection.abbr.toLowerCase() : `hip${selection.id}`;
+  const idSuffix =
+    selection.kind === "region"
+      ? selection.abbr.toLowerCase()
+      : selection.kind === "object"
+      ? (selection.category || "object")
+      : `hip${selection.id}`;
   return `hanos-${slug}-${idSuffix}.png`;
 }

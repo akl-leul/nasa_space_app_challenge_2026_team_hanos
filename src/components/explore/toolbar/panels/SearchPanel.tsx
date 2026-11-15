@@ -39,7 +39,7 @@ export function SearchPanel() {
       const t = await resolveActiveTarget(query);
       setActiveTarget(t);
       setDockOpen(true);
-      flyTo(t.ra, t.dec, 5.0);
+      flyTo(t.ra, t.dec, 30.0);
       setSearchMsg(`Found ${t.name} (RA ${t.ra.toFixed(4)}°, Dec ${t.dec.toFixed(4)}° on 2026.0). The time-lapse is at the bottom left.`);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
@@ -66,7 +66,7 @@ export function SearchPanel() {
           setMovingResults([]);
           setActiveTarget(t);
           setDockOpen(true);
-          flyTo(t.ra, t.dec, 5.0);
+          flyTo(t.ra, t.dec, 30.0);
           setSearchMsg(`${t.name} is not a solar-system object, so it is not in the moving-object search. It is in the sky catalogue, so it is opened in the time-lapse at the bottom left.`);
           return;
         }
@@ -155,7 +155,7 @@ export function SearchPanel() {
               <div
                 key={idx}
                 onClick={() => {
-                  flyTo(m.predicted_ra, m.predicted_dec, 5.0);
+                  flyTo(m.predicted_ra, m.predicted_dec, 30.0);
                   setActiveTarget({
                     name: `${ssObjName.trim()} (${String(m.start_utc ?? "").slice(0, 10)})`,
                     kind: "object",

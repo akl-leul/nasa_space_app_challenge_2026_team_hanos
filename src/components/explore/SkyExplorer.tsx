@@ -13,6 +13,7 @@ import { SkyDomeCanvas, SkyDomeCanvasHandle } from "./SkyDomeCanvas";
 import { SelectionVisualizer } from "./SelectionVisualizer";
 import { TimeLapseDock } from "./dock/TimeLapseDock";
 import { resolveActiveTarget } from "@/lib/explore/resolveTarget";
+import { detectCategory } from "@/lib/explore/detectCategory";
 import { TopToolbar } from "./toolbar/TopToolbar";
 import { ExploreProvider, useExplore } from "./toolbar/ExploreContext";
 import { StatusBar } from "./StatusBar";
@@ -112,6 +113,7 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
     setResetViewHandler,
     setZoomHandlers,
     setRegionPlayNotice,
+    activeTarget,
     setActiveTarget,
     setDockOpen,
     embedMode,
@@ -151,6 +153,51 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
   const [pinnedPoint, setPinnedPoint] = useState<{ ra: number; dec: number } | null>(null);
   const [isShareCardOpen, setIsShareCardOpen] = useState(false);
   const [soundRegion, setSoundRegion] = useState<PlayRegionParams | null>(null);
+
+  // Derive effectiveSelection: if activeTarget is set and doesn't match selection,
+  // derive an object selection so searched targets, galaxies, asteroids, brown dwarfs
+  // are highlighted on the sky dome with target reticle and share card capabilities.
+  const effectiveSelection: SkySelection | null = (() => {
+    if (selection && activeTarget) {
+      if (
+        Math.abs(selection.ra - activeTarget.ra) < 0.0005 &&
+        Math.abs(selection.dec - activeTarget.dec) < 0.0005
+      ) {
+        return selection;
+      }
+    }
+    if (activeTarget) {
+      const cat = detectCategory(
+        activeTarget.name,
+        (activeTarget as unknown as { objectType?: string }).objectType,
+        activeTarget.detail
+      );
+
+      const matchedCon = constellations.find((c) => {
+        const [cra, cdec] = c.center;
+        return Math.hypot(cra - activeTarget.ra, cdec - activeTarget.dec) < 15;
+      }) || null;
+
+      return {
+        kind: "object",
+        id: activeTarget.name,
+        name: activeTarget.name,
+        ra: activeTarget.ra,
+        dec: activeTarget.dec,
+        category: cat,
+        detail: activeTarget.detail,
+        objectType: (activeTarget as unknown as { objectType?: string }).objectType ?? null,
+        pmra: activeTarget.pmra,
+        pmdec: activeTarget.pmdec,
+        epoch: activeTarget.epoch,
+        parallaxMas: (activeTarget as unknown as { parallaxMas?: number }).parallaxMas ?? null,
+        constellation: matchedCon,
+      };
+    }
+    return selection;
+  })();
+
+  const effectivePinnedPoint = pinnedPoint || (activeTarget ? { ra: activeTarget.ra, dec: activeTarget.dec } : null);
 
   const prefetchShareCard = useCallback(() => {
     import("./ShareCardDialog");
@@ -245,6 +292,14 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
               });
               setPinnedPoint({ ra: star.ra, dec: star.dec });
             }
+          } else if (selStr.startsWith("object:")) {
+            const objName = selStr.replace("object:", "").trim();
+            resolveActiveTarget(objName)
+              .then((t) => {
+                setActiveTarget(t);
+                skyDomeRef.current?.flyTo(t.ra, t.dec, 30.0);
+              })
+              .catch(() => undefined);
           }
         }
 
@@ -314,7 +369,7 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
     return () => {
       cancelled = true;
     };
-  }, [initialParams.sel]);
+  }, [initialParams.sel, setActiveTarget]);
 
   // Debounced URL state update (?ra=&dec=&fov=&sel=...)
   const urlDebounceTimer = useRef<NodeJS.Timeout | null>(null);
@@ -332,17 +387,19 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
         params.set("dec", viewCenter.dec.toFixed(2));
         params.set("fov", fov.toFixed(1));
 
-        if (selection) {
-          if (selection.kind === "region") {
-            params.set("sel", `region:${selection.abbr}`);
+        if (effectiveSelection) {
+          if (effectiveSelection.kind === "region") {
+            params.set("sel", `region:${effectiveSelection.abbr}`);
+          } else if (effectiveSelection.kind === "object") {
+            params.set("sel", `object:${effectiveSelection.name}`);
           } else {
-            params.set("sel", `star:${selection.id}`);
+            params.set("sel", `star:${effectiveSelection.id}`);
           }
         }
 
         // keep a shared ?target=Name while nothing else has been selected, so the link stays valid
         const sharedTarget = new URLSearchParams(window.location.search).get("target");
-        if (sharedTarget && !selection) params.set("target", sharedTarget);
+        if (sharedTarget && !effectiveSelection) params.set("target", sharedTarget);
 
         const newUrl = `${window.location.pathname}?${params.toString()}`;
         window.history.replaceState(null, "", newUrl);
@@ -354,7 +411,7 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
         clearTimeout(urlDebounceTimer.current);
       }
     };
-  }, [viewCenter, fov, selection, loading]);
+  }, [viewCenter, fov, effectiveSelection, loading]);
 
   // Handlers
   const handleSelectSelection = useCallback(
@@ -400,7 +457,8 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
 
   const handleClearSelection = useCallback(() => {
     handleSelectSelection(null);
-  }, [handleSelectSelection]);
+    setActiveTarget(null);
+  }, [handleSelectSelection, setActiveTarget]);
 
   const handleZoomIn = useCallback(() => {
     skyDomeRef.current?.zoomIn();
@@ -415,8 +473,9 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
     setViewCenter({ ra: 0, dec: 0 });
     setFov(60.0);
     setSelection(null);
+    setActiveTarget(null);
     setPinnedPoint(null);
-  }, [setViewCenter, setFov]);
+  }, [setViewCenter, setFov, setActiveTarget]);
 
   const handlePinPoint = useCallback((ra: number, dec: number) => {
     setPinnedPoint({ ra, dec });
@@ -481,7 +540,7 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
     resolveActiveTarget(name)
       .then((t) => {
         setActiveTarget(t);
-        skyDomeRef.current?.flyTo(t.ra, t.dec, 5.0);
+        skyDomeRef.current?.flyTo(t.ra, t.dec, 30.0);
       })
       .catch(() => undefined);
   }, [setActiveTarget]);
@@ -499,7 +558,7 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
 
   const openTimelapseForRegion = useCallback(() => {
     if (!soundRegion) return;
-    skyDomeRef.current?.flyTo(soundRegion.ra, soundRegion.dec, 5.0);
+    skyDomeRef.current?.flyTo(soundRegion.ra, soundRegion.dec, 30.0);
     setDockOpen(true);
     setRegionPlayNotice(`Showing a cutout at the centre of ${soundRegion.name}, not the whole constellation.`);
     setSoundRegion(null);
@@ -544,10 +603,10 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
         namedStars={namedStars}
         constellationPolygons={constellationPolygons}
         lutBuffer={lutBuffer}
-        selection={selection}
+        selection={effectiveSelection}
         onSelectSelection={handleSelectSelection}
         onPinPoint={handlePinPoint}
-        pinnedPoint={pinnedPoint}
+        pinnedPoint={effectivePinnedPoint}
         isHorizon={isHorizon}
         isGrid={isGrid}
         showLabels={showLabels}
@@ -561,7 +620,7 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
       >
         {/* Floating Action Capsule (Play, Info, Share) rendered inside dome container */}
         <SelectionVisualizer
-          selection={selection}
+          selection={effectiveSelection}
           onClearSelection={handleClearSelection}
           onOpenInfo={() => setDockOpen(true)}
           onOpenShareCard={() => setIsShareCardOpen(true)}
@@ -576,8 +635,8 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
 
       {/* Bottom-left dock: the selected object over time (replaces the old constellation list) */}
       <TimeLapseDock
-        selection={selection}
-        pinnedPoint={pinnedPoint}
+        selection={effectiveSelection}
+        pinnedPoint={effectivePinnedPoint}
         onClearPinnedPoint={() => setPinnedPoint(null)}
       />
 
@@ -604,11 +663,11 @@ function SkyExplorerInner({ onSelect, onPlayRegion }: SkyExplorerProps) {
       )}
 
       {/* Share Target Card Modal Dialog */}
-      {isShareCardOpen && selection && (
+      {isShareCardOpen && effectiveSelection && (
         <ShareCardDialog
           isOpen={isShareCardOpen}
           onClose={() => setIsShareCardOpen(false)}
-          selection={selection}
+          selection={effectiveSelection}
           constellations={constellations}
           stars={stars}
           boundaryPositions={boundaryPositions}
