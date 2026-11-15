@@ -58,7 +58,10 @@ it inside Vercel's proxy limits.
 
 ### 2. The website on Vercel
 
-1. Vercel dashboard, **Add New, Project**, import the same repository. The framework is detected as Next.js; keep the defaults.
+1. Vercel dashboard, **Add New, Project**, import the same repository. Root Directory `./`, Application Preset **Next.js**.
+   `vercel.json` pins the framework. If Vercel still offers "Multiple applications detected" (it notices `services/api` and
+   `render.yaml`), import it as a standalone Next.js project and **do not** use the Services option: the API is deployed on
+   Render, not on Vercel.
 2. Environment variables (Production, and Preview if you want previews to work):
 
    | Name | Value |
