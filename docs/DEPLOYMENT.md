@@ -102,8 +102,9 @@ API (environment variables on the Render service; `render.yaml` already sets the
 | `HANOS_CACHE_DIR` | `services/api/cache` | Where the cache lives. `/data` in the container. |
 | `HANOS_SQLITE_WAL` | `1` | Keep `1` on a local disk (Render). Set `0` only if the cache is on a network share. |
 | `HANOS_CORS_ORIGINS` | empty | Comma separated origins, only if another site calls the API directly. |
-| `HANOS_RATE_PER_MIN` / `HANOS_HEAVY_PER_MIN` | `240` / `40` | Requests per minute per client (ordinary / archive-reading endpoints). |
-| `HANOS_MAX_JOBS` | `4` | Tracking jobs running at once; more are refused with 503 and `Retry-After`. |
+| `HANOS_RATE_PER_MIN` / `HANOS_HEAVY_PER_MIN` | `1200` / `300` | Requests per minute per client address (ordinary, including measurement polling and frame images / endpoints that start archive reads). Generous because event visitors often share one address. |
+| `HANOS_MAX_JOBS` | `32` | Tracking jobs running at once (one per region or detector a visitor opens); beyond it new ones get 503 and `Retry-After`. A guard, not a throttle. |
+| `HANOS_FRAME_SLOTS` | `10` | Frames downloaded and measured at once across all jobs; the rest wait their turn and the job shows slower progress. |
 | `HANOS_LOG_LEVEL` | `INFO` | |
 | `PORT` | `8000` | Set by Render; the container listens on it. |
 

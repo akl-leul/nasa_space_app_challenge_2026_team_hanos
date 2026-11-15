@@ -5,9 +5,10 @@ HANOS_CACHE_DIR      Where the SQLite cache and the cutouts live. In production 
 HANOS_CORS_ORIGINS   Comma separated origins allowed to call the API from a browser. Empty (default in production) means
                      same origin only, which is how the site calls it (through its own /api address).
 HANOS_SQLITE_WAL     1 (default) uses the SQLite write-ahead log. Set 0 only when HANOS_CACHE_DIR is on a network share.
-HANOS_RATE_PER_MIN   Requests per minute per client for ordinary endpoints (default 240).
-HANOS_HEAVY_PER_MIN  Requests per minute per client for the endpoints that read archives (default 40).
-HANOS_MAX_JOBS       Tracking jobs allowed to run at once (default 4).
+HANOS_RATE_PER_MIN   Requests per minute per client for ordinary endpoints (default 1200).
+HANOS_HEAVY_PER_MIN  Requests per minute per client for the endpoints that start archive reads (default 300).
+HANOS_MAX_JOBS       Tracking jobs allowed to run at once (default 32); beyond it new ones get 503 + Retry-After.
+HANOS_FRAME_SLOTS    Frames downloaded and measured at once across all jobs (default 10); the rest queue.
 HANOS_HIPS_FOLDER    Folder of the All-Sky Cube under dr1/hips5_cube/ on IRSA.
 HANOS_LOG_LEVEL      INFO (default), DEBUG, WARNING.
 """
@@ -43,9 +44,15 @@ CORS_ORIGINS = _cors or (["http://localhost:3000", "http://127.0.0.1:3000"] if I
 # SQLite write-ahead log: on for a local disk, off (0) when the cache lives on a network share.
 SQLITE_WAL = os.environ.get("HANOS_SQLITE_WAL", "1").strip().lower() not in ("0", "false", "no", "off")
 
-RATE_PER_MIN = _int("HANOS_RATE_PER_MIN", 240)
-HEAVY_PER_MIN = _int("HANOS_HEAVY_PER_MIN", 40)
-MAX_RUNNING_JOBS = _int("HANOS_MAX_JOBS", 4)
+# Per client address. Generous on purpose: visitors at an event often share one Wi-Fi address, and one open region already polls
+# its measurement about 24 times a minute.
+RATE_PER_MIN = _int("HANOS_RATE_PER_MIN", 1200)
+HEAVY_PER_MIN = _int("HANOS_HEAVY_PER_MIN", 300)
+# Measurements (one per region or detector the visitor opens) run at the same time; the explorer starts one per region and
+# the per-exposure spectrum starts six. This is a memory and abuse guard, not a throttle: the real throttle is FRAME_SLOTS.
+MAX_RUNNING_JOBS = _int("HANOS_MAX_JOBS", 32)
+# Frame downloads and measurements allowed at once across ALL jobs; further frames wait their turn.
+FRAME_SLOTS = _int("HANOS_FRAME_SLOTS", 10)
 LOG_LEVEL = os.environ.get("HANOS_LOG_LEVEL", "INFO").upper()
 
 # IRSA Endpoints

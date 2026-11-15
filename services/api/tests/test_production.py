@@ -66,7 +66,7 @@ def test_the_rate_limit_answers_429_with_retry_after():
     async def ping():
         return {"ok": True}
 
-    @tiny.get("/api/track")
+    @tiny.get("/api/spectrum")
     async def heavy():
         return {"ok": True}
 
@@ -75,8 +75,8 @@ def test_the_rate_limit_answers_429_with_retry_after():
     assert c.get("/api/ping").status_code == 200
     blocked = c.get("/api/ping")
     assert blocked.status_code == 429 and int(blocked.headers["retry-after"]) >= 1
-    assert c.get("/api/track").status_code == 200
-    assert c.get("/api/track").status_code == 429  # the expensive group has its own, smaller allowance
+    assert c.get("/api/spectrum").status_code == 200
+    assert c.get("/api/spectrum").status_code == 429  # the expensive group has its own, smaller allowance
 
 
 def test_too_many_running_measurements_are_refused_not_queued(monkeypatch):
@@ -97,3 +97,55 @@ def test_finished_jobs_are_forgotten_so_memory_cannot_grow_forever(monkeypatch):
     assert len(tracking._jobs) < 10
     assert "k0" not in tracking._jobs  # the oldest finished job went first
     tracking._jobs.clear()
+
+
+def test_a_visitor_opening_many_regions_is_queued_not_refused(monkeypatch):
+    """Six detectors for the per-exposure spectrum plus several hovered regions must all start (the old cap of 4 refused them)."""
+    import asyncio
+
+    async def go():
+        async def idle(job):  # the real work needs the archives; only the admission rule is under test
+            await asyncio.sleep(0)
+            job.status = "done"
+
+        monkeypatch.setattr(tracking, "_run", idle)
+        tracking._jobs.clear()
+        for i in range(12):
+            tracking.start_job(tracking.TrackParams(ra=float(i), dec=1.0, size_deg=0.1, detector=1 + i % 6))
+        assert len(tracking._jobs) == 12
+        await asyncio.sleep(0.05)
+
+    asyncio.run(go())
+    tracking._jobs.clear()
+
+
+def test_frame_downloads_share_a_bounded_pool(monkeypatch):
+    import asyncio
+
+    monkeypatch.setattr(tracking, "FRAME_SLOTS", 3)
+    tracking._slots.clear()
+
+    async def go():
+        active = peak = 0
+
+        async def one():
+            nonlocal active, peak
+            async with tracking._frame_slots():
+                active += 1
+                peak = max(peak, active)
+                await asyncio.sleep(0.01)
+                active -= 1
+
+        await asyncio.gather(*(one() for _ in range(20)))
+        return peak
+
+    assert asyncio.run(go()) == 3
+    tracking._slots.clear()
+
+
+def test_measurement_polling_and_frame_images_use_the_ordinary_allowance():
+    from services.api.security import HEAVY_PREFIXES
+
+    assert not "/api/track".startswith(HEAVY_PREFIXES)
+    assert not "/api/frame.png".startswith(HEAVY_PREFIXES)
+    assert "/api/spectrum".startswith(HEAVY_PREFIXES)

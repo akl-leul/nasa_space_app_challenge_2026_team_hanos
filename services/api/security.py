@@ -15,8 +15,10 @@ from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
 # endpoints that read an archive or run image processing: much more expensive than a lookup
+# Endpoints that start archive reads. /api/track (polled every 2.5 s while a measurement runs) and /api/frame.png (dozens per
+# viewer, served from the stored cutouts) are cheap per call, so they are counted with the ordinary group.
 HEAVY_PREFIXES = (
-    "/api/track", "/api/spectrum", "/api/stack", "/api/difference", "/api/frame.png",
+    "/api/spectrum", "/api/stack", "/api/difference",
     "/api/observations", "/api/overlays", "/api/detectors", "/api/moving", "/api/context",
 )
 EXEMPT = ("/api/healthz",)

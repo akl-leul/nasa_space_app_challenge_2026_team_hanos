@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     path: "/",
     absoluteTitle: true,
   }),
-  icons: { icon: { url: "/landing/favicon.svg", type: "image/svg+xml" } },
+  // no icons here: every page uses the Hanos emblem from src/app/favicon.ico, icon.png and apple-icon.png
 };
 
 export const viewport: Viewport = {

@@ -29,7 +29,7 @@ from .clients.gaia import query_gaia_sources
 from .clients.http import UpstreamError
 from .clients.irsa_cutout import get_cutout
 from .clients.observations import get_observations
-from .config import MAX_RUNNING_JOBS
+from .config import FRAME_SLOTS, MAX_RUNNING_JOBS
 
 _jobs: Dict[str, "TrackJob"] = {}
 _tasks: set = set()
@@ -109,6 +109,19 @@ async def _reference_alignment(cut: Dict[str, Any], wcs, refs: List[Dict[str, An
             "shift_north_arcsec": float(med[1]), "scatter_arcsec": scatter}
 
 
+_slots: Dict[Any, asyncio.Semaphore] = {}
+
+
+def _frame_slots() -> asyncio.Semaphore:
+    """One shared pool of download slots per running event loop (a loop only changes in tests)."""
+    loop = asyncio.get_running_loop()
+    s = _slots.get(loop)
+    if s is None:
+        _slots.clear()
+        s = _slots[loop] = asyncio.Semaphore(FRAME_SLOTS)
+    return s
+
+
 async def process_frame(job: TrackJob, idx: int, obs: Dict[str, Any], sem: asyncio.Semaphore) -> None:
     p = job.params
     base = {
@@ -120,7 +133,9 @@ async def process_frame(job: TrackJob, idx: int, obs: Dict[str, Any], sem: async
         "exposure_s": obs.get("exposure_s"), "psf_fwhm_arcsec": obs.get("psf_fwhm_arcsec"),
     }
     try:
-        async with sem:
+        # per job at most 5 downloads at once, and across all jobs at most FRAME_SLOTS: extra work waits its turn
+        # (the job just shows slower progress) instead of the request being refused
+        async with sem, _frame_slots():
             cut = await get_cutout(obs["access_url"], p.ra, p.dec, p.size_deg)
         meta = cut["meta"]
         wcs = sky_wcs(header_from_text(meta["header_text"]))

@@ -5,7 +5,7 @@ Run from the repository root with any Python that has Pillow:
 
 Outputs (committed, so a normal build needs no Python):
     public/og/hanos-og.png                                    1200 x 630 link preview (Open Graph and Twitter)
-    src/app/icon.png, src/app/apple-icon.png                  browser and home-screen icons
+    src/app/favicon.ico, src/app/icon.png, src/app/apple-icon.png  browser-tab and home-screen icons
     public/icons/icon-192.png, icon-512.png, maskable-512.png  web app manifest icons
 
 The artwork reuses the landing page palette (paper, navy, ink). It is brand art, not mission imagery or data.
@@ -75,7 +75,18 @@ def icon(size, pad_ratio, path, bg=PAPER):
     im.convert("RGB").save(path, optimize=True)
 
 
+def favicon_ico(path):
+    """The browser-tab icon: the emblem on paper at 16, 32 and 48 px, each drawn from the artwork (not scaled from one size)."""
+    frames = []
+    for size in (16, 32, 48):
+        im = Image.new("RGBA", (size, size), PAPER + (255,))
+        paste_center(im, emblem(round(size * 0.84)), size / 2, size / 2)
+        frames.append(im)
+    frames[-1].save(path, format="ICO", sizes=[(f.width, f.height) for f in frames], append_images=frames[:-1])
+
+
 def main():
+    favicon_ico(ROOT / "src" / "app" / "favicon.ico")
     open_graph()
     icon(512, 0.16, ROOT / "src" / "app" / "icon.png")
     icon(180, 0.16, ROOT / "src" / "app" / "apple-icon.png")
