@@ -24,6 +24,7 @@ export function Header({ page }: { page: "home" | "challenge" }) {
             <Link href="/challenge">The challenge</Link>
             <a href="#chapter-member-1" data-journey-nav>The team</a>
             <a href="#project" data-journey-nav>Our project</a>
+            <a href="#sonification-archive" data-journey-nav>Cosmic sound</a>
             <a href="#resources" data-journey-nav>Resources</a>
           </>
         ) : (
@@ -31,6 +32,7 @@ export function Header({ page }: { page: "home" | "challenge" }) {
             <Link href="/challenge" aria-current="page">The challenge</Link>
             <Link href="/#chapter-member-1">The team</Link>
             <Link href="/#project">Our project</Link>
+            <Link href="/#sonification-archive">Cosmic sound</Link>
             <Link href="/#resources">Resources</Link>
           </>
         )}

@@ -3,6 +3,7 @@ import { Journey } from "@/components/landing/Journey";
 import { LandingFrame } from "@/components/landing/LandingFrame";
 import { Project } from "@/components/landing/Project";
 import { Roster } from "@/components/landing/Roster";
+import { SonificationArchive } from "@/components/landing/SonificationArchive";
 
 export default function LandingPage() {
   return (
@@ -11,6 +12,7 @@ export default function LandingPage() {
       <Journey />
       <Roster />
       <Project />
+      <SonificationArchive />
     </LandingFrame>
   );
 }
