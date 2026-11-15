@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
+@theme {
+  --color-blue: #1F48FF;
+  --color-cream: #F5F3ED;
+  --color-ink: #111111;
+  --color-region: #1F48FF;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-blue: #1F48FF;
+  --color-cream: #F5F3ED;
+  --color-ink: #111111;
+  --color-region: #1F48FF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* App shell styling for (app) route group as required by AGENTS.md */
+.app-shell,
+.app-shell * {
+  font-size: 9px;
+  font-weight: 400;
+  font-synthesis: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.app-shell h1,
+.app-shell h2,
+.app-shell h3,
+.app-shell h4,
+.app-shell h5,
+.app-shell h6,
+.app-shell button,
+.app-shell input,
+.app-shell select,
+.app-shell textarea {
+  font: inherit;
 }

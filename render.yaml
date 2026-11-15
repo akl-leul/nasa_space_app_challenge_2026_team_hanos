@@ -1,0 +1,32 @@
+# Render Blueprint for the HANOS science API (the website itself is on Vercel).
+# Render, New, Blueprint, pick this repository. Details and the first-deployment checklist: docs/DEPLOYMENT.md
+services:
+  - type: web
+    name: hanos-api
+    runtime: docker
+    dockerfilePath: ./services/api/Dockerfile
+    dockerContext: .
+    # A persistent disk needs a paid instance. This service must stay at ONE instance (jobs live in memory and the cache is
+    # one SQLite file; a service with a disk cannot scale out). 2 GB of memory is for the FITS cutouts and the all-sky cube;
+    # a smaller plan can run out of memory on a stack.
+    plan: standard
+    numInstances: 1
+    region: frankfurt
+    healthCheckPath: /api/healthz
+    autoDeploy: true
+    disk:
+      name: hanos-cache
+      mountPath: /data
+      sizeGB: 20
+    envVars:
+      - key: HANOS_ENV
+        value: production
+      - key: HANOS_CACHE_DIR
+        value: /data
+      # Render's disk is a local block disk, so the SQLite write-ahead log is safe here.
+      - key: HANOS_SQLITE_WAL
+        value: "1"
+      - key: HANOS_LOG_LEVEL
+        value: INFO
+      # Same origin through the website (Vercel forwards /api/*), so no browser origin needs CORS. Set it only if another
+      # site calls the API directly:  HANOS_CORS_ORIGINS=https://hanos.surf

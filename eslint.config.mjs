@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // third-party code we only serve (Lenis, vendored as a minified file)
+    "public/landing/vendor/**",
   ]),
 ]);
 

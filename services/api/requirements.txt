@@ -1,0 +1,13 @@
+# Runtime dependencies of the science API (what the container installs). Tests are in requirements-dev.txt.
+fastapi==0.162.7
+uvicorn==0.54.0
+astropy==8.0.2
+astroquery==0.4.11
+pyvo==1.10.0
+reproject==0.21.0
+hpgeom==1.7.1
+pillow==13.0.0
+httpx==0.28.1
+numpy==2.5.4
+scipy==1.18.1
+certifi==2026.10.23

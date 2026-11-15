@@ -1,0 +1,3692 @@
+[
+  {
+    "id": "And",
+    "name": "Andromeda",
+    "gen": "Andromedae",
+    "center": [
+      9.78,
+      40.19
+    ],
+    "brightestStars": [
+      {
+        "name": "Alpheratz",
+        "mag": 2.07,
+        "ra": 2.0969,
+        "dec": 29.0904
+      },
+      {
+        "name": "Mirach",
+        "mag": 2.07,
+        "ra": 17.433,
+        "dec": 35.6206
+      },
+      {
+        "name": "Almach",
+        "mag": 2.1,
+        "ra": 30.9748,
+        "dec": 42.3297
+      },
+      {
+        "name": "\u03b4",
+        "mag": 3.27,
+        "ra": 9.832,
+        "dec": 30.861
+      },
+      {
+        "name": "Nembus",
+        "mag": 3.59,
+        "ra": 24.4982,
+        "dec": 48.6282
+      }
+    ],
+    "area": 723.1
+  },
+  {
+    "id": "Ant",
+    "name": "Antlia",
+    "gen": "Antliae",
+    "center": [
+      153.7,
+      -31.81
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 4.28,
+        "ra": 156.7879,
+        "dec": -31.0678
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.51,
+        "ra": 142.3113,
+        "dec": -35.9513
+      },
+      {
+        "name": "\u03b9",
+        "mag": 4.6,
+        "ra": 164.1794,
+        "dec": -37.1378
+      },
+      {
+        "name": "\u03b8",
+        "mag": 4.78,
+        "ra": 146.0504,
+        "dec": -27.7695
+      },
+      {
+        "name": "\u03b7",
+        "mag": 5.23,
+        "ra": 149.7178,
+        "dec": -35.891
+      }
+    ],
+    "area": 238.6
+  },
+  {
+    "id": "Aps",
+    "name": "Apus",
+    "gen": "Apodis",
+    "center": [
+      246.43,
+      -75.6
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.83,
+        "ra": 221.9655,
+        "dec": -79.0448
+      },
+      {
+        "name": "\u03b3",
+        "mag": 3.86,
+        "ra": 248.3628,
+        "dec": -78.8971
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.23,
+        "ra": 250.7694,
+        "dec": -77.5174
+      },
+      {
+        "name": "\u03b41",
+        "mag": 4.68,
+        "ra": 245.0867,
+        "dec": -78.6957
+      },
+      {
+        "name": "\u03b6",
+        "mag": 4.76,
+        "ra": 260.4978,
+        "dec": -67.7707
+      }
+    ],
+    "area": 206.7
+  },
+  {
+    "id": "Aql",
+    "name": "Aquila",
+    "gen": "Aquilae",
+    "center": [
+      292.53,
+      4.84
+    ],
+    "brightestStars": [
+      {
+        "name": "Altair",
+        "mag": 0.76,
+        "ra": 297.6958,
+        "dec": 8.8683
+      },
+      {
+        "name": "Tarazed",
+        "mag": 2.72,
+        "ra": 296.5649,
+        "dec": 10.6133
+      },
+      {
+        "name": "Okab",
+        "mag": 2.99,
+        "ra": 286.3525,
+        "dec": 13.8635
+      },
+      {
+        "name": "\u03b8",
+        "mag": 3.24,
+        "ra": 302.8262,
+        "dec": -0.8215
+      },
+      {
+        "name": "Almizan",
+        "mag": 3.36,
+        "ra": 291.3746,
+        "dec": 3.1148
+      }
+    ],
+    "area": 649.3
+  },
+  {
+    "id": "Aqr",
+    "name": "Aquarius",
+    "gen": "Aquarii",
+    "center": [
+      329.03,
+      -4.87
+    ],
+    "brightestStars": [
+      {
+        "name": "Sadalsuud",
+        "mag": 2.9,
+        "ra": 322.8897,
+        "dec": -5.5712
+      },
+      {
+        "name": "Sadalmelik",
+        "mag": 2.95,
+        "ra": 331.446,
+        "dec": -0.3199
+      },
+      {
+        "name": "Skat",
+        "mag": 3.27,
+        "ra": 343.6626,
+        "dec": -15.8208
+      },
+      {
+        "name": "Sadaltager",
+        "mag": 3.65,
+        "ra": 337.208,
+        "dec": -0.02
+      },
+      {
+        "name": "c2",
+        "mag": 3.68,
+        "ra": 347.3617,
+        "dec": -21.1724
+      }
+    ],
+    "area": 983.6
+  },
+  {
+    "id": "Ara",
+    "name": "Ara",
+    "gen": "Arae",
+    "center": [
+      258.29,
+      -60.0
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b2",
+        "mag": 2.84,
+        "ra": 261.325,
+        "dec": -55.5299
+      },
+      {
+        "name": "Choo",
+        "mag": 2.84,
+        "ra": 262.9604,
+        "dec": -49.8761
+      },
+      {
+        "name": "\u03b6",
+        "mag": 3.12,
+        "ra": 254.655,
+        "dec": -55.9901
+      },
+      {
+        "name": "\u03b3",
+        "mag": 3.31,
+        "ra": 261.3486,
+        "dec": -56.3777
+      },
+      {
+        "name": "\u03b4",
+        "mag": 3.6,
+        "ra": 262.7746,
+        "dec": -60.6838
+      }
+    ],
+    "area": 238.7
+  },
+  {
+    "id": "Ari",
+    "name": "Aries",
+    "gen": "Arietis",
+    "center": [
+      38.64,
+      21.93
+    ],
+    "brightestStars": [
+      {
+        "name": "Hamal",
+        "mag": 2.01,
+        "ra": 31.7934,
+        "dec": 23.4624
+      },
+      {
+        "name": "Sheratan",
+        "mag": 2.64,
+        "ra": 28.66,
+        "dec": 20.808
+      },
+      {
+        "name": "Bharani",
+        "mag": 3.61,
+        "ra": 42.496,
+        "dec": 27.2605
+      },
+      {
+        "name": "Mesarthim",
+        "mag": 3.88,
+        "ra": 28.3826,
+        "dec": 19.2939
+      },
+      {
+        "name": "Botein",
+        "mag": 4.35,
+        "ra": 47.9074,
+        "dec": 19.7267
+      }
+    ],
+    "area": 443.8
+  },
+  {
+    "id": "Aur",
+    "name": "Auriga",
+    "gen": "Aurigae",
+    "center": [
+      86.98,
+      41.54
+    ],
+    "brightestStars": [
+      {
+        "name": "Capella",
+        "mag": 0.08,
+        "ra": 79.1723,
+        "dec": 45.998
+      },
+      {
+        "name": "Menkalinan",
+        "mag": 1.9,
+        "ra": 89.8822,
+        "dec": 44.9474
+      },
+      {
+        "name": "Mahasim",
+        "mag": 2.65,
+        "ra": 89.9303,
+        "dec": 37.2126
+      },
+      {
+        "name": "Hassaleh",
+        "mag": 2.69,
+        "ra": 74.2484,
+        "dec": 33.1661
+      },
+      {
+        "name": "Almaaz",
+        "mag": 3.03,
+        "ra": 75.4922,
+        "dec": 43.8233
+      }
+    ],
+    "area": 658.0
+  },
+  {
+    "id": "Boo",
+    "name": "Bo\u00f6tes",
+    "gen": "Bo\u00f6tis",
+    "center": [
+      221.45,
+      34.76
+    ],
+    "brightestStars": [
+      {
+        "name": "Arcturus",
+        "mag": -0.05,
+        "ra": 213.9153,
+        "dec": 19.1824
+      },
+      {
+        "name": "Izar",
+        "mag": 2.35,
+        "ra": 221.2467,
+        "dec": 27.0742
+      },
+      {
+        "name": "Muphrid",
+        "mag": 2.68,
+        "ra": 208.6712,
+        "dec": 18.3977
+      },
+      {
+        "name": "Seginus",
+        "mag": 3.04,
+        "ra": 218.0195,
+        "dec": 38.3083
+      },
+      {
+        "name": "Thiba",
+        "mag": 3.46,
+        "ra": 228.8757,
+        "dec": 33.3148
+      }
+    ],
+    "area": 902.2
+  },
+  {
+    "id": "CMa",
+    "name": "Canis Major",
+    "gen": "Canis Majoris",
+    "center": [
+      99.34,
+      -23.08
+    ],
+    "brightestStars": [
+      {
+        "name": "Sirius",
+        "mag": -1.44,
+        "ra": 101.2872,
+        "dec": -16.7161
+      },
+      {
+        "name": "Adhara",
+        "mag": 1.5,
+        "ra": 104.6565,
+        "dec": -28.9721
+      },
+      {
+        "name": "Wezen",
+        "mag": 1.83,
+        "ra": 107.0979,
+        "dec": -26.3932
+      },
+      {
+        "name": "Mirzam",
+        "mag": 1.98,
+        "ra": 95.6749,
+        "dec": -17.9559
+      },
+      {
+        "name": "Aludra",
+        "mag": 2.45,
+        "ra": 111.0238,
+        "dec": -29.3031
+      }
+    ],
+    "area": 383.0
+  },
+  {
+    "id": "CMi",
+    "name": "Canis Minor",
+    "gen": "Canis Minoris",
+    "center": [
+      114.32,
+      6.64
+    ],
+    "brightestStars": [
+      {
+        "name": "Procyon",
+        "mag": 0.4,
+        "ra": 114.8255,
+        "dec": 5.225
+      },
+      {
+        "name": "Gomeisa",
+        "mag": 2.89,
+        "ra": 111.7877,
+        "dec": 8.2893
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.33,
+        "ra": 112.0408,
+        "dec": 8.9255
+      },
+      {
+        "name": "G",
+        "mag": 4.39,
+        "ra": 120.5664,
+        "dec": 2.3346
+      },
+      {
+        "name": "HIP 36425",
+        "mag": 4.55,
+        "ra": 112.4491,
+        "dec": 12.0066
+      }
+    ],
+    "area": 185.9
+  },
+  {
+    "id": "CVn",
+    "name": "Canes Venatici",
+    "gen": "Canum Venaticorum",
+    "center": [
+      196.53,
+      37.81
+    ],
+    "brightestStars": [
+      {
+        "name": "Cor Caroli",
+        "mag": 2.89,
+        "ra": 194.0069,
+        "dec": 38.3184
+      },
+      {
+        "name": "Chara",
+        "mag": 4.24,
+        "ra": 188.4356,
+        "dec": 41.3575
+      },
+      {
+        "name": "HIP 66234",
+        "mag": 4.68,
+        "ra": 203.6136,
+        "dec": 49.016
+      },
+      {
+        "name": "HIP 64844",
+        "mag": 4.72,
+        "ra": 199.3856,
+        "dec": 40.5726
+      },
+      {
+        "name": "HIP 60485",
+        "mag": 4.76,
+        "ra": 186.0062,
+        "dec": 51.5623
+      }
+    ],
+    "area": 466.6
+  },
+  {
+    "id": "Cae",
+    "name": "Caelum",
+    "gen": "Caeli",
+    "center": [
+      70.35,
+      -38.01
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 4.44,
+        "ra": 70.1405,
+        "dec": -41.8638
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.55,
+        "ra": 76.1017,
+        "dec": -35.483
+      },
+      {
+        "name": "\u03b2",
+        "mag": 5.04,
+        "ra": 70.5145,
+        "dec": -37.1443
+      },
+      {
+        "name": "\u03b4",
+        "mag": 5.07,
+        "ra": 67.7087,
+        "dec": -44.9537
+      }
+    ],
+    "area": 124.5
+  },
+  {
+    "id": "Cam",
+    "name": "Camelopardalis",
+    "gen": "Camelopardalis",
+    "center": [
+      88.75,
+      75.1
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b2",
+        "mag": 4.03,
+        "ra": 75.8545,
+        "dec": 60.4422
+      },
+      {
+        "name": "HIP 16228",
+        "mag": 4.21,
+        "ra": 52.2672,
+        "dec": 59.9403
+      },
+      {
+        "name": "\u03b1",
+        "mag": 4.26,
+        "ra": 73.5125,
+        "dec": 66.3427
+      },
+      {
+        "name": "HIP 17884",
+        "mag": 4.39,
+        "ra": 57.3803,
+        "dec": 65.526
+      },
+      {
+        "name": "HIP 23040",
+        "mag": 4.43,
+        "ra": 74.3217,
+        "dec": 53.7521
+      }
+    ],
+    "area": 758.1
+  },
+  {
+    "id": "Cap",
+    "name": "Capricornus",
+    "gen": "Capricorni",
+    "center": [
+      314.4,
+      -16.84
+    ],
+    "brightestStars": [
+      {
+        "name": "Deneb Algedi",
+        "mag": 2.85,
+        "ra": 326.7602,
+        "dec": -16.1273
+      },
+      {
+        "name": "Dabih",
+        "mag": 3.05,
+        "ra": 305.2528,
+        "dec": -14.7814
+      },
+      {
+        "name": "Algedi",
+        "mag": 3.58,
+        "ra": 304.5136,
+        "dec": -12.5449
+      },
+      {
+        "name": "Nashira",
+        "mag": 3.69,
+        "ra": 325.0227,
+        "dec": -16.6623
+      },
+      {
+        "name": "Yen",
+        "mag": 3.77,
+        "ra": 321.6668,
+        "dec": -22.4113
+      }
+    ],
+    "area": 411.1
+  },
+  {
+    "id": "Car",
+    "name": "Carina",
+    "gen": "Carinae",
+    "center": [
+      123.24,
+      -60.77
+    ],
+    "brightestStars": [
+      {
+        "name": "Canopus",
+        "mag": -0.62,
+        "ra": 95.988,
+        "dec": -52.6957
+      },
+      {
+        "name": "Miaplacidus",
+        "mag": 1.67,
+        "ra": 138.2999,
+        "dec": -69.7172
+      },
+      {
+        "name": "Avior",
+        "mag": 1.86,
+        "ra": 125.6285,
+        "dec": -59.5095
+      },
+      {
+        "name": "Aspidiske",
+        "mag": 2.21,
+        "ra": 139.2725,
+        "dec": -59.2752
+      },
+      {
+        "name": "\u03b8",
+        "mag": 2.74,
+        "ra": 160.7392,
+        "dec": -64.3945
+      }
+    ],
+    "area": 494.0
+  },
+  {
+    "id": "Cas",
+    "name": "Cassiopeia",
+    "gen": "Cassiopeiae",
+    "center": [
+      11.21,
+      59.12
+    ],
+    "brightestStars": [
+      {
+        "name": "Navi",
+        "mag": 2.15,
+        "ra": 14.1772,
+        "dec": 60.7167
+      },
+      {
+        "name": "Shedar",
+        "mag": 2.24,
+        "ra": 10.1268,
+        "dec": 56.5373
+      },
+      {
+        "name": "Caph",
+        "mag": 2.28,
+        "ra": 2.2945,
+        "dec": 59.1498
+      },
+      {
+        "name": "Ruchbah",
+        "mag": 2.66,
+        "ra": 21.454,
+        "dec": 60.2353
+      },
+      {
+        "name": "Segin",
+        "mag": 3.35,
+        "ra": 28.5989,
+        "dec": 63.6701
+      }
+    ],
+    "area": 601.2
+  },
+  {
+    "id": "Cen",
+    "name": "Centaurus",
+    "gen": "Centauri",
+    "center": [
+      191.61,
+      -50.52
+    ],
+    "brightestStars": [
+      {
+        "name": "Rigil Kentaurus",
+        "mag": -0.01,
+        "ra": 219.9021,
+        "dec": -60.834
+      },
+      {
+        "name": "Hadar",
+        "mag": 0.61,
+        "ra": 210.9559,
+        "dec": -60.373
+      },
+      {
+        "name": "Toliman",
+        "mag": 1.35,
+        "ra": 219.8962,
+        "dec": -60.8372
+      },
+      {
+        "name": "Menkent",
+        "mag": 2.06,
+        "ra": 211.6706,
+        "dec": -36.37
+      },
+      {
+        "name": "Muhlifain",
+        "mag": 2.2,
+        "ra": 190.3793,
+        "dec": -48.9599
+      }
+    ],
+    "area": 1060.8
+  },
+  {
+    "id": "Cep",
+    "name": "Cepheus",
+    "gen": "Cephei",
+    "center": [
+      330.89,
+      73.63
+    ],
+    "brightestStars": [
+      {
+        "name": "Alderamin",
+        "mag": 2.45,
+        "ra": 319.6449,
+        "dec": 62.5856
+      },
+      {
+        "name": "Errai",
+        "mag": 3.21,
+        "ra": 354.8369,
+        "dec": 77.6323
+      },
+      {
+        "name": "Alfirk",
+        "mag": 3.23,
+        "ra": 322.165,
+        "dec": 70.5607
+      },
+      {
+        "name": "\u03b6",
+        "mag": 3.39,
+        "ra": 332.7137,
+        "dec": 58.2013
+      },
+      {
+        "name": "Kabalfird",
+        "mag": 3.41,
+        "ra": 311.3224,
+        "dec": 61.8388
+      }
+    ],
+    "area": 576.8
+  },
+  {
+    "id": "Cet",
+    "name": "Cetus",
+    "gen": "Ceti",
+    "center": [
+      25.09,
+      -5.89
+    ],
+    "brightestStars": [
+      {
+        "name": "Diphda",
+        "mag": 2.04,
+        "ra": 10.8974,
+        "dec": -17.9866
+      },
+      {
+        "name": "Menkar",
+        "mag": 2.54,
+        "ra": 45.5699,
+        "dec": 4.0897
+      },
+      {
+        "name": "Dheneb",
+        "mag": 3.46,
+        "ra": 17.1475,
+        "dec": -10.1823
+      },
+      {
+        "name": "Kaffaljidhma",
+        "mag": 3.47,
+        "ra": 40.8252,
+        "dec": 3.2358
+      },
+      {
+        "name": "\u03c4",
+        "mag": 3.49,
+        "ra": 26.017,
+        "dec": -15.9375
+      }
+    ],
+    "area": 1239.9
+  },
+  {
+    "id": "Cha",
+    "name": "Chamaeleon",
+    "gen": "Chamaeleontis",
+    "center": [
+      151.52,
+      -81.1
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 4.05,
+        "ra": 124.6315,
+        "dec": -76.9197
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.11,
+        "ra": 158.8671,
+        "dec": -78.6078
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.24,
+        "ra": 184.5868,
+        "dec": -79.3122
+      },
+      {
+        "name": "\u03b8",
+        "mag": 4.34,
+        "ra": 125.1606,
+        "dec": -77.4845
+      },
+      {
+        "name": "\u03b42",
+        "mag": 4.45,
+        "ra": 161.4458,
+        "dec": -80.5402
+      }
+    ],
+    "area": 133.3
+  },
+  {
+    "id": "Cir",
+    "name": "Circinus",
+    "gen": "Circini",
+    "center": [
+      221.72,
+      -63.91
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.18,
+        "ra": 220.6267,
+        "dec": -64.9751
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.07,
+        "ra": 229.3785,
+        "dec": -58.8012
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.48,
+        "ra": 230.8444,
+        "dec": -59.3208
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.85,
+        "ra": 229.412,
+        "dec": -63.6105
+      },
+      {
+        "name": "\u03b4",
+        "mag": 5.04,
+        "ra": 229.2371,
+        "dec": -60.9573
+      }
+    ],
+    "area": 92.6
+  },
+  {
+    "id": "Cnc",
+    "name": "Cancer",
+    "gen": "Cancri",
+    "center": [
+      125.04,
+      17.04
+    ],
+    "brightestStars": [
+      {
+        "name": "Tarf",
+        "mag": 3.53,
+        "ra": 124.1288,
+        "dec": 9.1855
+      },
+      {
+        "name": "Asellus Australis",
+        "mag": 3.94,
+        "ra": 131.1712,
+        "dec": 18.1543
+      },
+      {
+        "name": "Zubanah",
+        "mag": 4.03,
+        "ra": 131.6743,
+        "dec": 28.7599
+      },
+      {
+        "name": "Acubens",
+        "mag": 4.26,
+        "ra": 134.6218,
+        "dec": 11.8577
+      },
+      {
+        "name": "Asellus Borealis",
+        "mag": 4.66,
+        "ra": 130.8214,
+        "dec": 21.4685
+      }
+    ],
+    "area": 505.4
+  },
+  {
+    "id": "Col",
+    "name": "Columba",
+    "gen": "Columbae",
+    "center": [
+      88.19,
+      -36.93
+    ],
+    "brightestStars": [
+      {
+        "name": "Phact",
+        "mag": 2.65,
+        "ra": 84.9122,
+        "dec": -34.0741
+      },
+      {
+        "name": "Wazn",
+        "mag": 3.12,
+        "ra": 87.74,
+        "dec": -35.7683
+      },
+      {
+        "name": "\u03b4",
+        "mag": 3.85,
+        "ra": 95.5285,
+        "dec": -33.4364
+      },
+      {
+        "name": "\u03b5",
+        "mag": 3.86,
+        "ra": 82.8031,
+        "dec": -35.4705
+      },
+      {
+        "name": "\u03b7",
+        "mag": 3.96,
+        "ra": 89.7867,
+        "dec": -42.8151
+      }
+    ],
+    "area": 275.1
+  },
+  {
+    "id": "Com",
+    "name": "Coma Berenices",
+    "gen": "Comae Berenices",
+    "center": [
+      190.16,
+      24.15
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b2",
+        "mag": 4.23,
+        "ra": 197.9683,
+        "dec": 27.8782
+      },
+      {
+        "name": "Diadem",
+        "mag": 4.32,
+        "ra": 197.497,
+        "dec": 17.5294
+      },
+      {
+        "name": "Al Dafirah",
+        "mag": 4.35,
+        "ra": 186.7345,
+        "dec": 28.2684
+      },
+      {
+        "name": "HIP 60202",
+        "mag": 4.72,
+        "ra": 185.1793,
+        "dec": 17.7929
+      },
+      {
+        "name": "HIP 63355",
+        "mag": 4.76,
+        "ra": 194.731,
+        "dec": 17.4094
+      }
+    ],
+    "area": 387.1
+  },
+  {
+    "id": "CrA",
+    "name": "Corona Austrina",
+    "gen": "Coronae Austrini",
+    "center": [
+      276.74,
+      -41.55
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b2",
+        "mag": 4.1,
+        "ra": 287.5073,
+        "dec": -39.3408
+      },
+      {
+        "name": "Meridiana",
+        "mag": 4.11,
+        "ra": 287.3681,
+        "dec": -37.9045
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.23,
+        "ra": 286.6046,
+        "dec": -37.0634
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.57,
+        "ra": 287.0874,
+        "dec": -40.4967
+      },
+      {
+        "name": "\u03b8",
+        "mag": 4.62,
+        "ra": 278.3758,
+        "dec": -42.3125
+      }
+    ],
+    "area": 127.2
+  },
+  {
+    "id": "CrB",
+    "name": "Corona Borealis",
+    "gen": "Coronae Borealis",
+    "center": [
+      237.44,
+      31.07
+    ],
+    "brightestStars": [
+      {
+        "name": "Alphecca",
+        "mag": 2.22,
+        "ra": 233.672,
+        "dec": 26.7147
+      },
+      {
+        "name": "Nusakan",
+        "mag": 3.66,
+        "ra": 231.9572,
+        "dec": 29.1057
+      },
+      {
+        "name": "\u03b3",
+        "mag": 3.81,
+        "ra": 235.6857,
+        "dec": 26.2956
+      },
+      {
+        "name": "\u03b8",
+        "mag": 4.14,
+        "ra": 233.2324,
+        "dec": 31.3591
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.14,
+        "ra": 239.3969,
+        "dec": 26.8779
+      }
+    ],
+    "area": 179.5
+  },
+  {
+    "id": "Crt",
+    "name": "Crater",
+    "gen": "Crateris",
+    "center": [
+      169.09,
+      -14.08
+    ],
+    "brightestStars": [
+      {
+        "name": "Labr",
+        "mag": 3.56,
+        "ra": 169.8352,
+        "dec": -14.7785
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.06,
+        "ra": 171.2205,
+        "dec": -17.684
+      },
+      {
+        "name": "Alkes",
+        "mag": 4.08,
+        "ra": 164.9436,
+        "dec": -18.2988
+      },
+      {
+        "name": "Al Sharasif",
+        "mag": 4.46,
+        "ra": 167.9145,
+        "dec": -22.8258
+      },
+      {
+        "name": "\u03b8",
+        "mag": 4.7,
+        "ra": 174.1705,
+        "dec": -9.8022
+      }
+    ],
+    "area": 278.6
+  },
+  {
+    "id": "Cru",
+    "name": "Crux",
+    "gen": "Crux",
+    "center": [
+      185.02,
+      -59.5
+    ],
+    "brightestStars": [
+      {
+        "name": "Acrux",
+        "mag": 0.77,
+        "ra": 186.6496,
+        "dec": -63.0991
+      },
+      {
+        "name": "Mimosa",
+        "mag": 1.25,
+        "ra": 191.9303,
+        "dec": -59.6888
+      },
+      {
+        "name": "Gacrux",
+        "mag": 1.59,
+        "ra": 187.7915,
+        "dec": -57.1132
+      },
+      {
+        "name": "Imai",
+        "mag": 2.79,
+        "ra": 183.7863,
+        "dec": -58.7489
+      },
+      {
+        "name": "Ginan",
+        "mag": 3.59,
+        "ra": 185.34,
+        "dec": -60.4011
+      }
+    ],
+    "area": 69.7
+  },
+  {
+    "id": "Crv",
+    "name": "Corvus",
+    "gen": "Corvi",
+    "center": [
+      188.82,
+      -18.79
+    ],
+    "brightestStars": [
+      {
+        "name": "Gienah",
+        "mag": 2.58,
+        "ra": 183.9515,
+        "dec": -17.5419
+      },
+      {
+        "name": "Kraz",
+        "mag": 2.65,
+        "ra": 188.5968,
+        "dec": -23.3968
+      },
+      {
+        "name": "Algorab",
+        "mag": 2.94,
+        "ra": 187.4661,
+        "dec": -16.5154
+      },
+      {
+        "name": "Minkar",
+        "mag": 3.02,
+        "ra": 182.5312,
+        "dec": -22.6198
+      },
+      {
+        "name": "Alchiba",
+        "mag": 4.02,
+        "ra": 182.1034,
+        "dec": -24.7289
+      }
+    ],
+    "area": 183.9
+  },
+  {
+    "id": "Cyg",
+    "name": "Cygnus",
+    "gen": "Cygni",
+    "center": [
+      306.3,
+      45.04
+    ],
+    "brightestStars": [
+      {
+        "name": "Deneb",
+        "mag": 1.25,
+        "ra": 310.358,
+        "dec": 45.2803
+      },
+      {
+        "name": "Sadr",
+        "mag": 2.23,
+        "ra": 305.5571,
+        "dec": 40.2567
+      },
+      {
+        "name": "Aljanah",
+        "mag": 2.48,
+        "ra": 311.5528,
+        "dec": 33.9703
+      },
+      {
+        "name": "Fawaris",
+        "mag": 2.86,
+        "ra": 296.2437,
+        "dec": 45.1308
+      },
+      {
+        "name": "Albireo",
+        "mag": 3.05,
+        "ra": 292.6803,
+        "dec": 27.9597
+      }
+    ],
+    "area": 806.4
+  },
+  {
+    "id": "Del",
+    "name": "Delphinus",
+    "gen": "Delphini",
+    "center": [
+      310.04,
+      11.23
+    ],
+    "brightestStars": [
+      {
+        "name": "Rotanev",
+        "mag": 3.64,
+        "ra": 309.3873,
+        "dec": 14.5951
+      },
+      {
+        "name": "Sualocin",
+        "mag": 3.77,
+        "ra": 309.9095,
+        "dec": 15.9121
+      },
+      {
+        "name": "Aldulfin",
+        "mag": 4.03,
+        "ra": 308.3032,
+        "dec": 11.3033
+      },
+      {
+        "name": "Al Salib",
+        "mag": 4.27,
+        "ra": 311.6646,
+        "dec": 16.1243
+      },
+      {
+        "name": "Al Ukud",
+        "mag": 4.43,
+        "ra": 310.8647,
+        "dec": 15.0746
+      }
+    ],
+    "area": 186.9
+  },
+  {
+    "id": "Dor",
+    "name": "Dorado",
+    "gen": "Doradus",
+    "center": [
+      70.45,
+      -57.71
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.3,
+        "ra": 68.4991,
+        "dec": -55.045
+      },
+      {
+        "name": "\u03b2",
+        "mag": 3.76,
+        "ra": 83.4063,
+        "dec": -62.4898
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.26,
+        "ra": 64.0066,
+        "dec": -51.4866
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.34,
+        "ra": 86.1932,
+        "dec": -65.7355
+      },
+      {
+        "name": "HIP 27890",
+        "mag": 4.65,
+        "ra": 88.5252,
+        "dec": -63.0896
+      }
+    ],
+    "area": 179.9
+  },
+  {
+    "id": "Dra",
+    "name": "Draco",
+    "gen": "Draconis",
+    "center": [
+      248.2,
+      73.26
+    ],
+    "brightestStars": [
+      {
+        "name": "Eltanin",
+        "mag": 2.24,
+        "ra": 269.1515,
+        "dec": 51.4889
+      },
+      {
+        "name": "Athebyne",
+        "mag": 2.73,
+        "ra": 245.9979,
+        "dec": 61.5142
+      },
+      {
+        "name": "Rastaban",
+        "mag": 2.79,
+        "ra": 262.6082,
+        "dec": 52.3014
+      },
+      {
+        "name": "Altais",
+        "mag": 3.07,
+        "ra": 288.1388,
+        "dec": 67.6615
+      },
+      {
+        "name": "Aldhibah",
+        "mag": 3.17,
+        "ra": 257.1966,
+        "dec": 65.7147
+      }
+    ],
+    "area": 1085.2
+  },
+  {
+    "id": "Equ",
+    "name": "Equuleus",
+    "gen": "Equulei",
+    "center": [
+      316.82,
+      8.36
+    ],
+    "brightestStars": [
+      {
+        "name": "Kitalpha",
+        "mag": 3.92,
+        "ra": 318.956,
+        "dec": 5.2478
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.47,
+        "ra": 318.6201,
+        "dec": 10.007
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.7,
+        "ra": 317.5854,
+        "dec": 10.1316
+      },
+      {
+        "name": "\u03b2",
+        "mag": 5.16,
+        "ra": 320.7234,
+        "dec": 6.8111
+      },
+      {
+        "name": "\u03b5",
+        "mag": 5.3,
+        "ra": 314.7687,
+        "dec": 4.2935
+      }
+    ],
+    "area": 73.0
+  },
+  {
+    "id": "Eri",
+    "name": "Eridanus",
+    "gen": "Eridani",
+    "center": [
+      54.72,
+      -33.26
+    ],
+    "brightestStars": [
+      {
+        "name": "Achernar",
+        "mag": 0.45,
+        "ra": 24.4285,
+        "dec": -57.2368
+      },
+      {
+        "name": "Cursa",
+        "mag": 2.78,
+        "ra": 76.9624,
+        "dec": -5.0864
+      },
+      {
+        "name": "Acamar",
+        "mag": 2.88,
+        "ra": 44.5653,
+        "dec": -40.3047
+      },
+      {
+        "name": "Zaurak",
+        "mag": 2.97,
+        "ra": 59.5074,
+        "dec": -13.5085
+      },
+      {
+        "name": "Rana",
+        "mag": 3.52,
+        "ra": 55.8121,
+        "dec": -9.7634
+      }
+    ],
+    "area": 1142.1
+  },
+  {
+    "id": "For",
+    "name": "Fornax",
+    "gen": "Fornacis",
+    "center": [
+      41.21,
+      -32.95
+    ],
+    "brightestStars": [
+      {
+        "name": "Dalim",
+        "mag": 3.8,
+        "ra": 48.0189,
+        "dec": -28.9876
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.45,
+        "ra": 42.2726,
+        "dec": -32.4059
+      },
+      {
+        "name": "\u03bd",
+        "mag": 4.68,
+        "ra": 31.1227,
+        "dec": -29.2968
+      },
+      {
+        "name": "\u03c9",
+        "mag": 4.96,
+        "ra": 38.4613,
+        "dec": -28.2323
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.99,
+        "ra": 55.5621,
+        "dec": -31.9384
+      }
+    ],
+    "area": 391.8
+  },
+  {
+    "id": "Gem",
+    "name": "Gemini",
+    "gen": "Geminorum",
+    "center": [
+      106.82,
+      21.53
+    ],
+    "brightestStars": [
+      {
+        "name": "Pollux",
+        "mag": 1.16,
+        "ra": 116.329,
+        "dec": 28.0262
+      },
+      {
+        "name": "Castor",
+        "mag": 1.58,
+        "ra": 113.6494,
+        "dec": 31.8883
+      },
+      {
+        "name": "Alhena",
+        "mag": 1.93,
+        "ra": 99.4279,
+        "dec": 16.3993
+      },
+      {
+        "name": "Tejat",
+        "mag": 2.87,
+        "ra": 95.7401,
+        "dec": 22.5136
+      },
+      {
+        "name": "Mebsuta",
+        "mag": 3.06,
+        "ra": 100.983,
+        "dec": 25.1311
+      }
+    ],
+    "area": 514.6
+  },
+  {
+    "id": "Gru",
+    "name": "Grus",
+    "gen": "Gruis",
+    "center": [
+      335.4,
+      -44.88
+    ],
+    "brightestStars": [
+      {
+        "name": "Alnair",
+        "mag": 1.73,
+        "ra": 332.0583,
+        "dec": -46.961
+      },
+      {
+        "name": "Tiaki",
+        "mag": 2.07,
+        "ra": 340.6669,
+        "dec": -46.8846
+      },
+      {
+        "name": "Aldhanab",
+        "mag": 3,
+        "ra": 328.4822,
+        "dec": -37.3649
+      },
+      {
+        "name": "\u03b5",
+        "mag": 3.49,
+        "ra": 342.1387,
+        "dec": -51.3169
+      },
+      {
+        "name": "\u03b9",
+        "mag": 3.88,
+        "ra": 347.5897,
+        "dec": -45.2467
+      }
+    ],
+    "area": 363.3
+  },
+  {
+    "id": "Her",
+    "name": "Hercules",
+    "gen": "Herculis",
+    "center": [
+      259.83,
+      25.62
+    ],
+    "brightestStars": [
+      {
+        "name": "Kornephoros",
+        "mag": 2.78,
+        "ra": 247.555,
+        "dec": 21.4896
+      },
+      {
+        "name": "Rasalgethi",
+        "mag": 2.78,
+        "ra": 258.6619,
+        "dec": 14.3903
+      },
+      {
+        "name": "Rutilicus",
+        "mag": 2.81,
+        "ra": 250.3215,
+        "dec": 31.6027
+      },
+      {
+        "name": "Sarin",
+        "mag": 3.12,
+        "ra": 258.758,
+        "dec": 24.8392
+      },
+      {
+        "name": "\u03c0",
+        "mag": 3.16,
+        "ra": 258.7618,
+        "dec": 36.8092
+      }
+    ],
+    "area": 1229.5
+  },
+  {
+    "id": "Hor",
+    "name": "Horologium",
+    "gen": "Horologii",
+    "center": [
+      51.38,
+      -50.96
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.85,
+        "ra": 63.5005,
+        "dec": -42.2944
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.93,
+        "ra": 62.7108,
+        "dec": -41.9936
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.98,
+        "ra": 44.6992,
+        "dec": -64.0713
+      },
+      {
+        "name": "\u03bc",
+        "mag": 5.12,
+        "ra": 45.9034,
+        "dec": -59.7378
+      },
+      {
+        "name": "\u03b6",
+        "mag": 5.21,
+        "ra": 40.1651,
+        "dec": -54.5499
+      }
+    ],
+    "area": 249.9
+  },
+  {
+    "id": "Hya",
+    "name": "Hydra",
+    "gen": "Hydrae",
+    "center": [
+      159.75,
+      -23.15
+    ],
+    "brightestStars": [
+      {
+        "name": "Alphard",
+        "mag": 1.99,
+        "ra": 141.8968,
+        "dec": -8.6586
+      },
+      {
+        "name": "\u03b3",
+        "mag": 2.99,
+        "ra": 199.7304,
+        "dec": -23.1715
+      },
+      {
+        "name": "\u03b6",
+        "mag": 3.11,
+        "ra": 133.8484,
+        "dec": 5.9456
+      },
+      {
+        "name": "\u03bd",
+        "mag": 3.11,
+        "ra": 162.4062,
+        "dec": -16.1936
+      },
+      {
+        "name": "\u03c0",
+        "mag": 3.25,
+        "ra": 211.5929,
+        "dec": -26.6824
+      }
+    ],
+    "area": 1310.0
+  },
+  {
+    "id": "Hyi",
+    "name": "Hydrus",
+    "gen": "Hydri",
+    "center": [
+      39.18,
+      -72.49
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b2",
+        "mag": 2.82,
+        "ra": 6.4378,
+        "dec": -77.2542
+      },
+      {
+        "name": "\u03b1",
+        "mag": 2.86,
+        "ra": 29.6925,
+        "dec": -61.5699
+      },
+      {
+        "name": "\u03b3",
+        "mag": 3.26,
+        "ra": 56.8098,
+        "dec": -74.239
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.08,
+        "ra": 35.4373,
+        "dec": -68.6594
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.12,
+        "ra": 39.8973,
+        "dec": -68.2669
+      }
+    ],
+    "area": 242.9
+  },
+  {
+    "id": "Ind",
+    "name": "Indus",
+    "gen": "Indi",
+    "center": [
+      323.68,
+      -60.49
+    ],
+    "brightestStars": [
+      {
+        "name": "Persian",
+        "mag": 3.11,
+        "ra": 309.3918,
+        "dec": -47.2915
+      },
+      {
+        "name": "\u03b2",
+        "mag": 3.67,
+        "ra": 313.7025,
+        "dec": -58.4542
+      },
+      {
+        "name": "\u03b8",
+        "mag": 4.39,
+        "ra": 319.9666,
+        "dec": -53.4494
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.4,
+        "ra": 329.4795,
+        "dec": -54.9926
+      },
+      {
+        "name": "\u03b7",
+        "mag": 4.51,
+        "ra": 311.0097,
+        "dec": -51.921
+      }
+    ],
+    "area": 292.4
+  },
+  {
+    "id": "LMi",
+    "name": "Leo Minor",
+    "gen": "Leonis Minoris",
+    "center": [
+      155.53,
+      32.83
+    ],
+    "brightestStars": [
+      {
+        "name": "Praecipua",
+        "mag": 3.79,
+        "ra": 163.3279,
+        "dec": 34.2149
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.2,
+        "ra": 156.9708,
+        "dec": 36.7072
+      },
+      {
+        "name": "HIP 49593",
+        "mag": 4.49,
+        "ra": 151.8573,
+        "dec": 35.2447
+      },
+      {
+        "name": "HIP 46952",
+        "mag": 4.54,
+        "ra": 143.5558,
+        "dec": 36.3976
+      },
+      {
+        "name": "HIP 52098",
+        "mag": 4.68,
+        "ra": 159.6801,
+        "dec": 31.9762
+      }
+    ],
+    "area": 232.0
+  },
+  {
+    "id": "Lac",
+    "name": "Lacerta",
+    "gen": "Lacertae",
+    "center": [
+      334.97,
+      45.39
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.76,
+        "ra": 337.8229,
+        "dec": 50.2825
+      },
+      {
+        "name": "HIP 109937",
+        "mag": 4.14,
+        "ra": 333.9924,
+        "dec": 37.7487
+      },
+      {
+        "name": "HIP 111022",
+        "mag": 4.34,
+        "ra": 337.3826,
+        "dec": 47.7069
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.42,
+        "ra": 335.8901,
+        "dec": 52.229
+      },
+      {
+        "name": "HIP 111944",
+        "mag": 4.5,
+        "ra": 340.1286,
+        "dec": 44.2763
+      }
+    ],
+    "area": 204.8
+  },
+  {
+    "id": "Leo",
+    "name": "Leo",
+    "gen": "Leonis",
+    "center": [
+      162.98,
+      15.15
+    ],
+    "brightestStars": [
+      {
+        "name": "Regulus",
+        "mag": 1.36,
+        "ra": 152.093,
+        "dec": 11.9672
+      },
+      {
+        "name": "Algieba",
+        "mag": 2.01,
+        "ra": 154.9931,
+        "dec": 19.8415
+      },
+      {
+        "name": "Denebola",
+        "mag": 2.14,
+        "ra": 177.2649,
+        "dec": 14.5721
+      },
+      {
+        "name": "Zosma",
+        "mag": 2.56,
+        "ra": 168.5271,
+        "dec": 20.5237
+      },
+      {
+        "name": "Algenubi",
+        "mag": 2.97,
+        "ra": 146.4628,
+        "dec": 23.7743
+      }
+    ],
+    "area": 944.7
+  },
+  {
+    "id": "Lep",
+    "name": "Lepus",
+    "gen": "Leporis",
+    "center": [
+      80.13,
+      -18.22
+    ],
+    "brightestStars": [
+      {
+        "name": "Arneb",
+        "mag": 2.58,
+        "ra": 83.1826,
+        "dec": -17.8223
+      },
+      {
+        "name": "Nihal",
+        "mag": 2.81,
+        "ra": 82.0613,
+        "dec": -20.7594
+      },
+      {
+        "name": "\u03b5",
+        "mag": 3.19,
+        "ra": 76.3653,
+        "dec": -22.371
+      },
+      {
+        "name": "\u03bc",
+        "mag": 3.29,
+        "ra": 78.2329,
+        "dec": -16.2055
+      },
+      {
+        "name": "\u03b6",
+        "mag": 3.55,
+        "ra": 86.7389,
+        "dec": -14.822
+      }
+    ],
+    "area": 284.2
+  },
+  {
+    "id": "Lib",
+    "name": "Libra",
+    "gen": "Librae",
+    "center": [
+      227.99,
+      -13.99
+    ],
+    "brightestStars": [
+      {
+        "name": "Zubeneschamali",
+        "mag": 2.61,
+        "ra": 229.2517,
+        "dec": -9.3829
+      },
+      {
+        "name": "Zubenelgenubi",
+        "mag": 2.75,
+        "ra": 222.7196,
+        "dec": -16.0418
+      },
+      {
+        "name": "Brachium",
+        "mag": 3.25,
+        "ra": 226.0176,
+        "dec": -25.282
+      },
+      {
+        "name": "\u03c5",
+        "mag": 3.6,
+        "ra": 234.256,
+        "dec": -28.1351
+      },
+      {
+        "name": "\u03c4",
+        "mag": 3.66,
+        "ra": 234.664,
+        "dec": -29.7778
+      }
+    ],
+    "area": 544.0
+  },
+  {
+    "id": "Lup",
+    "name": "Lupus",
+    "gen": "Lupi",
+    "center": [
+      229.51,
+      -46.23
+    ],
+    "brightestStars": [
+      {
+        "name": "Men",
+        "mag": 2.3,
+        "ra": 220.4823,
+        "dec": -47.3882
+      },
+      {
+        "name": "KeKouan",
+        "mag": 2.68,
+        "ra": 224.633,
+        "dec": -43.134
+      },
+      {
+        "name": "\u03b3",
+        "mag": 2.8,
+        "ra": 233.7852,
+        "dec": -41.1668
+      },
+      {
+        "name": "\u03b4",
+        "mag": 3.22,
+        "ra": 230.343,
+        "dec": -40.6475
+      },
+      {
+        "name": "\u03b5",
+        "mag": 3.37,
+        "ra": 230.6703,
+        "dec": -44.6896
+      }
+    ],
+    "area": 333.7
+  },
+  {
+    "id": "Lyn",
+    "name": "Lynx",
+    "gen": "Lyncis",
+    "center": [
+      119.58,
+      47.64
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.14,
+        "ra": 140.2638,
+        "dec": 34.3926
+      },
+      {
+        "name": "HIP 45688",
+        "mag": 3.82,
+        "ra": 139.711,
+        "dec": 36.8026
+      },
+      {
+        "name": "Alsciaukat",
+        "mag": 4.25,
+        "ra": 125.7088,
+        "dec": 43.1881
+      },
+      {
+        "name": "HIP 33449",
+        "mag": 4.35,
+        "ra": 104.3192,
+        "dec": 58.4228
+      },
+      {
+        "name": "HIP 30060",
+        "mag": 4.44,
+        "ra": 94.9058,
+        "dec": 59.011
+      }
+    ],
+    "area": 545.2
+  },
+  {
+    "id": "Lyr",
+    "name": "Lyra",
+    "gen": "Lyrae",
+    "center": [
+      285.03,
+      35.11
+    ],
+    "brightestStars": [
+      {
+        "name": "Vega",
+        "mag": 0.03,
+        "ra": 279.2347,
+        "dec": 38.7837
+      },
+      {
+        "name": "Sulafat",
+        "mag": 3.25,
+        "ra": 284.7359,
+        "dec": 32.6896
+      },
+      {
+        "name": "Sheliak",
+        "mag": 3.52,
+        "ra": 282.52,
+        "dec": 33.3627
+      },
+      {
+        "name": "HIP 92862",
+        "mag": 4.08,
+        "ra": 283.8338,
+        "dec": 43.9461
+      },
+      {
+        "name": "\u03b42",
+        "mag": 4.22,
+        "ra": 283.6262,
+        "dec": 36.8986
+      }
+    ],
+    "area": 287.2
+  },
+  {
+    "id": "Men",
+    "name": "Mensa",
+    "gen": "Mensae",
+    "center": [
+      83.01,
+      -79.09
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 5.08,
+        "ra": 92.5603,
+        "dec": -74.753
+      },
+      {
+        "name": "\u03b3",
+        "mag": 5.18,
+        "ra": 82.9709,
+        "dec": -76.341
+      },
+      {
+        "name": "\u03b2",
+        "mag": 5.3,
+        "ra": 75.6792,
+        "dec": -71.3143
+      },
+      {
+        "name": "\u03b8",
+        "mag": 5.45,
+        "ra": 104.1436,
+        "dec": -79.4202
+      },
+      {
+        "name": "\u03ba",
+        "mag": 5.46,
+        "ra": 87.5699,
+        "dec": -79.3614
+      }
+    ],
+    "area": 153.7
+  },
+  {
+    "id": "Mic",
+    "name": "Microscopium",
+    "gen": "Microscopii",
+    "center": [
+      314.33,
+      -35.08
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b3",
+        "mag": 4.67,
+        "ra": 315.3228,
+        "dec": -32.2578
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.71,
+        "ra": 319.4845,
+        "dec": -32.1725
+      },
+      {
+        "name": "\u03b81",
+        "mag": 4.8,
+        "ra": 320.1902,
+        "dec": -40.8095
+      },
+      {
+        "name": "\u03b1",
+        "mag": 4.89,
+        "ra": 312.492,
+        "dec": -33.7797
+      },
+      {
+        "name": "\u03b9",
+        "mag": 5.11,
+        "ra": 312.1214,
+        "dec": -43.9885
+      }
+    ],
+    "area": 210.9
+  },
+  {
+    "id": "Mon",
+    "name": "Monoceros",
+    "gen": "Monocerotis",
+    "center": [
+      103.0,
+      1.18
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b2",
+        "mag": 3.76,
+        "ra": 97.2045,
+        "dec": -7.0331
+      },
+      {
+        "name": "\u03b1",
+        "mag": 3.94,
+        "ra": 115.3118,
+        "dec": -9.5511
+      },
+      {
+        "name": "\u03b3",
+        "mag": 3.99,
+        "ra": 93.7139,
+        "dec": -6.2748
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.15,
+        "ra": 107.9661,
+        "dec": -0.4928
+      },
+      {
+        "name": "\u03b6",
+        "mag": 4.36,
+        "ra": 122.1485,
+        "dec": -2.9838
+      }
+    ],
+    "area": 481.5
+  },
+  {
+    "id": "Mus",
+    "name": "Musca",
+    "gen": "Muscae",
+    "center": [
+      191.36,
+      -68.44
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 2.69,
+        "ra": 189.2959,
+        "dec": -69.1356
+      },
+      {
+        "name": "\u03b2",
+        "mag": 3.04,
+        "ra": 191.57,
+        "dec": -68.1081
+      },
+      {
+        "name": "\u03b4",
+        "mag": 3.61,
+        "ra": 195.5678,
+        "dec": -71.5489
+      },
+      {
+        "name": "\u03bb",
+        "mag": 3.63,
+        "ra": 176.4017,
+        "dec": -66.7288
+      },
+      {
+        "name": "\u03b3",
+        "mag": 3.84,
+        "ra": 188.1167,
+        "dec": -72.133
+      }
+    ],
+    "area": 139.7
+  },
+  {
+    "id": "Nor",
+    "name": "Norma",
+    "gen": "Normae",
+    "center": [
+      237.42,
+      -51.81
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b32",
+        "mag": 4.01,
+        "ra": 244.9601,
+        "dec": -50.1555
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.46,
+        "ra": 246.796,
+        "dec": -47.5548
+      },
+      {
+        "name": "\u03b91",
+        "mag": 4.63,
+        "ra": 240.8837,
+        "dec": -57.7751
+      },
+      {
+        "name": "\u03b7",
+        "mag": 4.65,
+        "ra": 240.8037,
+        "dec": -49.2297
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.73,
+        "ra": 241.6227,
+        "dec": -45.1732
+      }
+    ],
+    "area": 165.2
+  },
+  {
+    "id": "Oct",
+    "name": "Octans",
+    "gen": "Octantis",
+    "center": [
+      346.11,
+      -84.78
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03bd",
+        "mag": 3.73,
+        "ra": 325.3694,
+        "dec": -77.39
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.13,
+        "ra": 341.5146,
+        "dec": -81.3816
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.31,
+        "ra": 216.7301,
+        "dec": -83.6679
+      },
+      {
+        "name": "\u03b8",
+        "mag": 4.78,
+        "ra": 0.3988,
+        "dec": -77.0657
+      },
+      {
+        "name": "\u03b5",
+        "mag": 5.09,
+        "ra": 335.007,
+        "dec": -80.4397
+      }
+    ],
+    "area": 289.5
+  },
+  {
+    "id": "Oph",
+    "name": "Ophiuchus",
+    "gen": "Ophiuchi",
+    "center": [
+      261.1,
+      -5.12
+    ],
+    "brightestStars": [
+      {
+        "name": "Rasalhague",
+        "mag": 2.08,
+        "ra": 263.7336,
+        "dec": 12.56
+      },
+      {
+        "name": "Sabik",
+        "mag": 2.43,
+        "ra": 257.5945,
+        "dec": -15.7249
+      },
+      {
+        "name": "Saik",
+        "mag": 2.54,
+        "ra": 249.2897,
+        "dec": -10.5671
+      },
+      {
+        "name": "Yed Prior",
+        "mag": 2.73,
+        "ra": 243.5864,
+        "dec": -3.6943
+      },
+      {
+        "name": "Cebalrai",
+        "mag": 2.76,
+        "ra": 265.8681,
+        "dec": 4.5673
+      }
+    ],
+    "area": 948.3
+  },
+  {
+    "id": "Ori",
+    "name": "Orion",
+    "gen": "Orionis",
+    "center": [
+      85.25,
+      9.61
+    ],
+    "brightestStars": [
+      {
+        "name": "Rigel",
+        "mag": 0.18,
+        "ra": 78.6345,
+        "dec": -8.2016
+      },
+      {
+        "name": "Betelgeuse",
+        "mag": 0.45,
+        "ra": 88.7929,
+        "dec": 7.4071
+      },
+      {
+        "name": "Bellatrix",
+        "mag": 1.64,
+        "ra": 81.2828,
+        "dec": 6.3497
+      },
+      {
+        "name": "Alnilam",
+        "mag": 1.69,
+        "ra": 84.0534,
+        "dec": -1.2019
+      },
+      {
+        "name": "Alnitak",
+        "mag": 1.74,
+        "ra": 85.1897,
+        "dec": -1.9426
+      }
+    ],
+    "area": 592.9
+  },
+  {
+    "id": "Pav",
+    "name": "Pavo",
+    "gen": "Pavonis",
+    "center": [
+      289.09,
+      -66.58
+    ],
+    "brightestStars": [
+      {
+        "name": "Peacock",
+        "mag": 1.94,
+        "ra": 306.4119,
+        "dec": -56.7351
+      },
+      {
+        "name": "\u03b2",
+        "mag": 3.42,
+        "ra": 311.2396,
+        "dec": -66.2032
+      },
+      {
+        "name": "\u03b4",
+        "mag": 3.55,
+        "ra": 302.1817,
+        "dec": -66.1821
+      },
+      {
+        "name": "\u03b7",
+        "mag": 3.61,
+        "ra": 266.4333,
+        "dec": -64.7239
+      },
+      {
+        "name": "\u03b5",
+        "mag": 3.97,
+        "ra": 300.1481,
+        "dec": -72.9105
+      }
+    ],
+    "area": 378.0
+  },
+  {
+    "id": "Peg",
+    "name": "Pegasus",
+    "gen": "Pegasi",
+    "center": [
+      339.02,
+      20.5
+    ],
+    "brightestStars": [
+      {
+        "name": "Enif",
+        "mag": 2.38,
+        "ra": 326.0465,
+        "dec": 9.875
+      },
+      {
+        "name": "Scheat",
+        "mag": 2.44,
+        "ra": 345.9436,
+        "dec": 28.0828
+      },
+      {
+        "name": "Markab",
+        "mag": 2.49,
+        "ra": 346.1902,
+        "dec": 15.2053
+      },
+      {
+        "name": "Algenib",
+        "mag": 2.83,
+        "ra": 3.309,
+        "dec": 15.1836
+      },
+      {
+        "name": "Matar",
+        "mag": 2.93,
+        "ra": 340.7506,
+        "dec": 30.2212
+      }
+    ],
+    "area": 1121.0
+  },
+  {
+    "id": "Per",
+    "name": "Perseus",
+    "gen": "Persei",
+    "center": [
+      43.54,
+      48.25
+    ],
+    "brightestStars": [
+      {
+        "name": "Mirfak",
+        "mag": 1.79,
+        "ra": 51.0807,
+        "dec": 49.8612
+      },
+      {
+        "name": "Algol",
+        "mag": 2.09,
+        "ra": 47.0422,
+        "dec": 40.9556
+      },
+      {
+        "name": "Atik",
+        "mag": 2.84,
+        "ra": 58.533,
+        "dec": 31.8836
+      },
+      {
+        "name": "\u03b5",
+        "mag": 2.9,
+        "ra": 59.4635,
+        "dec": 40.0102
+      },
+      {
+        "name": "\u03b3",
+        "mag": 2.91,
+        "ra": 46.1991,
+        "dec": 53.5064
+      }
+    ],
+    "area": 617.5
+  },
+  {
+    "id": "Phe",
+    "name": "Phoenix",
+    "gen": "Phoenicis",
+    "center": [
+      15.58,
+      -49.25
+    ],
+    "brightestStars": [
+      {
+        "name": "Ankaa",
+        "mag": 2.4,
+        "ra": 6.571,
+        "dec": -42.306
+      },
+      {
+        "name": "\u03b2",
+        "mag": 3.32,
+        "ra": 16.521,
+        "dec": -46.7184
+      },
+      {
+        "name": "\u03b3",
+        "mag": 3.41,
+        "ra": 22.0914,
+        "dec": -43.3182
+      },
+      {
+        "name": "\u03b5",
+        "mag": 3.88,
+        "ra": 2.3527,
+        "dec": -45.7474
+      },
+      {
+        "name": "\u03ba",
+        "mag": 3.93,
+        "ra": 6.5508,
+        "dec": -43.6798
+      }
+    ],
+    "area": 466.4
+  },
+  {
+    "id": "Pic",
+    "name": "Pictor",
+    "gen": "Pictoris",
+    "center": [
+      84.99,
+      -54.06
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.24,
+        "ra": 102.0477,
+        "dec": -61.9414
+      },
+      {
+        "name": "\u03b2",
+        "mag": 3.85,
+        "ra": 86.8212,
+        "dec": -51.0665
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.5,
+        "ra": 87.4569,
+        "dec": -56.1667
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.72,
+        "ra": 92.5746,
+        "dec": -54.9686
+      },
+      {
+        "name": "\u03b72",
+        "mag": 5.05,
+        "ra": 76.2417,
+        "dec": -49.5778
+      }
+    ],
+    "area": 246.1
+  },
+  {
+    "id": "PsA",
+    "name": "Piscis Austrinus",
+    "gen": "Piscis Austrini",
+    "center": [
+      333.64,
+      -29.03
+    ],
+    "brightestStars": [
+      {
+        "name": "Fomalhaut",
+        "mag": 1.17,
+        "ra": 344.4127,
+        "dec": -29.6222
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.18,
+        "ra": 340.1639,
+        "dec": -27.0436
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.2,
+        "ra": 343.9871,
+        "dec": -32.5396
+      },
+      {
+        "name": "Fum al Hui",
+        "mag": 4.29,
+        "ra": 337.8764,
+        "dec": -32.3461
+      },
+      {
+        "name": "\u03b9",
+        "mag": 4.35,
+        "ra": 326.2367,
+        "dec": -33.0258
+      }
+    ],
+    "area": 241.7
+  },
+  {
+    "id": "Psc",
+    "name": "Pisces",
+    "gen": "Piscium",
+    "center": [
+      6.38,
+      12.18
+    ],
+    "brightestStars": [
+      {
+        "name": "Alpherg",
+        "mag": 3.62,
+        "ra": 22.8709,
+        "dec": 15.3458
+      },
+      {
+        "name": "\u03b3",
+        "mag": 3.7,
+        "ra": 349.2914,
+        "dec": 3.2823
+      },
+      {
+        "name": "Alrescha",
+        "mag": 3.82,
+        "ra": 30.5118,
+        "dec": 2.7638
+      },
+      {
+        "name": "\u03c9",
+        "mag": 4.03,
+        "ra": 359.8279,
+        "dec": 6.8633
+      },
+      {
+        "name": "\u03b9",
+        "mag": 4.13,
+        "ra": 354.9877,
+        "dec": 5.6263
+      }
+    ],
+    "area": 885.9
+  },
+  {
+    "id": "Pup",
+    "name": "Puppis",
+    "gen": "Puppis",
+    "center": [
+      114.29,
+      -32.15
+    ],
+    "brightestStars": [
+      {
+        "name": "Naos",
+        "mag": 2.21,
+        "ra": 120.896,
+        "dec": -40.0031
+      },
+      {
+        "name": "\u03c0",
+        "mag": 2.71,
+        "ra": 109.2857,
+        "dec": -37.0975
+      },
+      {
+        "name": "Tureis",
+        "mag": 2.83,
+        "ra": 121.886,
+        "dec": -24.3043
+      },
+      {
+        "name": "\u03c4",
+        "mag": 2.94,
+        "ra": 102.484,
+        "dec": -50.6146
+      },
+      {
+        "name": "\u03bd",
+        "mag": 3.17,
+        "ra": 99.4403,
+        "dec": -43.1959
+      }
+    ],
+    "area": 673.3
+  },
+  {
+    "id": "Pyx",
+    "name": "Pyxis",
+    "gen": "Pyxidis",
+    "center": [
+      133.21,
+      -23.95
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.68,
+        "ra": 130.8981,
+        "dec": -33.1864
+      },
+      {
+        "name": "\u03b2",
+        "mag": 3.97,
+        "ra": 130.0256,
+        "dec": -35.3084
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.02,
+        "ra": 132.633,
+        "dec": -27.7098
+      },
+      {
+        "name": "\u03ba",
+        "mag": 4.62,
+        "ra": 137.012,
+        "dec": -25.8585
+      },
+      {
+        "name": "\u03b8",
+        "mag": 4.71,
+        "ra": 140.3733,
+        "dec": -25.9654
+      }
+    ],
+    "area": 219.4
+  },
+  {
+    "id": "Ret",
+    "name": "Reticulum",
+    "gen": "Reticuli",
+    "center": [
+      58.59,
+      -58.83
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.33,
+        "ra": 63.6062,
+        "dec": -62.4739
+      },
+      {
+        "name": "\u03b2",
+        "mag": 3.84,
+        "ra": 56.0499,
+        "dec": -64.8069
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.44,
+        "ra": 64.121,
+        "dec": -59.3022
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.48,
+        "ra": 60.2242,
+        "dec": -62.1593
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.56,
+        "ra": 59.6865,
+        "dec": -61.4002
+      }
+    ],
+    "area": 112.4
+  },
+  {
+    "id": "Scl",
+    "name": "Sculptor",
+    "gen": "Sculptoris",
+    "center": [
+      359.29,
+      -33.14
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 4.3,
+        "ra": 14.6515,
+        "dec": -29.3574
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.38,
+        "ra": 353.2427,
+        "dec": -37.8183
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.41,
+        "ra": 349.706,
+        "dec": -32.532
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.59,
+        "ra": 357.2314,
+        "dec": -28.1303
+      },
+      {
+        "name": "\u03b7",
+        "mag": 4.86,
+        "ra": 6.9821,
+        "dec": -33.0072
+      }
+    ],
+    "area": 477.4
+  },
+  {
+    "id": "Sco",
+    "name": "Scorpius",
+    "gen": "Scorpii",
+    "center": [
+      248.8,
+      -26.75
+    ],
+    "brightestStars": [
+      {
+        "name": "Antares",
+        "mag": 1.06,
+        "ra": 247.3519,
+        "dec": -26.432
+      },
+      {
+        "name": "Shaula",
+        "mag": 1.62,
+        "ra": 263.4022,
+        "dec": -37.1038
+      },
+      {
+        "name": "Sargas",
+        "mag": 1.86,
+        "ra": 264.3297,
+        "dec": -42.9978
+      },
+      {
+        "name": "Dschubba",
+        "mag": 2.29,
+        "ra": 240.0834,
+        "dec": -22.6217
+      },
+      {
+        "name": "Larawag",
+        "mag": 2.29,
+        "ra": 252.5409,
+        "dec": -34.2932
+      }
+    ],
+    "area": 494.4
+  },
+  {
+    "id": "Sct",
+    "name": "Scutum",
+    "gen": "Scuti",
+    "center": [
+      280.17,
+      -10.21
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.85,
+        "ra": 278.8018,
+        "dec": -8.2441
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.22,
+        "ra": 281.7936,
+        "dec": -4.7479
+      },
+      {
+        "name": "\u03b6",
+        "mag": 4.66,
+        "ra": 275.9149,
+        "dec": -8.9344
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.67,
+        "ra": 277.2994,
+        "dec": -14.5658
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.7,
+        "ra": 280.5684,
+        "dec": -9.0525
+      }
+    ],
+    "area": 107.9
+  },
+  {
+    "id": "Ser",
+    "name": "Serpens Cauda",
+    "gen": "Serpentis",
+    "center": [
+      259.9,
+      1.6
+    ],
+    "brightestStars": [
+      {
+        "name": "Unukalhai",
+        "mag": 2.63,
+        "ra": 236.067,
+        "dec": 6.4256
+      },
+      {
+        "name": "\u03b7",
+        "mag": 3.23,
+        "ra": 275.3275,
+        "dec": -2.8988
+      },
+      {
+        "name": "\u03bc",
+        "mag": 3.54,
+        "ra": 237.405,
+        "dec": -3.4302
+      },
+      {
+        "name": "\u03be",
+        "mag": 3.54,
+        "ra": 264.3967,
+        "dec": -15.3986
+      },
+      {
+        "name": "Nasak Shamiya",
+        "mag": 3.65,
+        "ra": 236.5469,
+        "dec": 15.4218
+      }
+    ],
+    "area": 635.8
+  },
+  {
+    "id": "Sex",
+    "name": "Sextans",
+    "gen": "Sextantis",
+    "center": [
+      154.08,
+      -2.39
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 4.48,
+        "ra": 151.9845,
+        "dec": -0.3716
+      },
+      {
+        "name": "HIP 47310",
+        "mag": 4.68,
+        "ra": 144.6137,
+        "dec": 4.6493
+      },
+      {
+        "name": "\u03b3",
+        "mag": 5.07,
+        "ra": 148.1268,
+        "dec": -8.105
+      },
+      {
+        "name": "\u03b2",
+        "mag": 5.08,
+        "ra": 157.5728,
+        "dec": -0.637
+      },
+      {
+        "name": "\u03b4",
+        "mag": 5.19,
+        "ra": 157.3696,
+        "dec": -2.7391
+      }
+    ],
+    "area": 313.4
+  },
+  {
+    "id": "Sge",
+    "name": "Sagitta",
+    "gen": "Sagittae",
+    "center": [
+      294.72,
+      19.03
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b3",
+        "mag": 3.51,
+        "ra": 299.6893,
+        "dec": 19.4921
+      },
+      {
+        "name": "\u03b4",
+        "mag": 3.68,
+        "ra": 296.8469,
+        "dec": 18.5343
+      },
+      {
+        "name": "Sham",
+        "mag": 4.39,
+        "ra": 295.0241,
+        "dec": 18.0139
+      },
+      {
+        "name": "\u03b2",
+        "mag": 4.39,
+        "ra": 295.2622,
+        "dec": 17.476
+      },
+      {
+        "name": "\u03b6",
+        "mag": 5.01,
+        "ra": 297.2444,
+        "dec": 19.142
+      }
+    ],
+    "area": 79.1
+  },
+  {
+    "id": "Sgr",
+    "name": "Sagittarius",
+    "gen": "Sagittarii",
+    "center": [
+      285.23,
+      -26.59
+    ],
+    "brightestStars": [
+      {
+        "name": "Kaus Australis",
+        "mag": 1.79,
+        "ra": 276.043,
+        "dec": -34.3846
+      },
+      {
+        "name": "Nunki",
+        "mag": 2.05,
+        "ra": 283.8164,
+        "dec": -26.2967
+      },
+      {
+        "name": "Ascella",
+        "mag": 2.6,
+        "ra": 285.653,
+        "dec": -29.8801
+      },
+      {
+        "name": "Kaus Media",
+        "mag": 2.72,
+        "ra": 275.2485,
+        "dec": -29.8281
+      },
+      {
+        "name": "Kaus Borealis",
+        "mag": 2.82,
+        "ra": 276.9927,
+        "dec": -25.4217
+      }
+    ],
+    "area": 867.4
+  },
+  {
+    "id": "Tau",
+    "name": "Taurus",
+    "gen": "Tauri",
+    "center": [
+      71.51,
+      16.84
+    ],
+    "brightestStars": [
+      {
+        "name": "Aldebaran",
+        "mag": 0.87,
+        "ra": 68.9802,
+        "dec": 16.5093
+      },
+      {
+        "name": "Elnath",
+        "mag": 1.65,
+        "ra": 81.573,
+        "dec": 28.6075
+      },
+      {
+        "name": "Alcyone",
+        "mag": 2.85,
+        "ra": 56.8712,
+        "dec": 24.1051
+      },
+      {
+        "name": "Tianguan",
+        "mag": 2.97,
+        "ra": 84.4112,
+        "dec": 21.1425
+      },
+      {
+        "name": "Chamukuy",
+        "mag": 3.4,
+        "ra": 67.1656,
+        "dec": 15.8709
+      }
+    ],
+    "area": 793.8
+  },
+  {
+    "id": "Tel",
+    "name": "Telescopium",
+    "gen": "Telescopii",
+    "center": [
+      292.54,
+      -52.04
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 3.49,
+        "ra": 276.7434,
+        "dec": -45.9685
+      },
+      {
+        "name": "\u03b6",
+        "mag": 4.1,
+        "ra": 277.2077,
+        "dec": -49.0706
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.52,
+        "ra": 272.8073,
+        "dec": -45.9544
+      },
+      {
+        "name": "\u03bb",
+        "mag": 4.85,
+        "ra": 284.6157,
+        "dec": -52.9386
+      },
+      {
+        "name": "\u03b9",
+        "mag": 4.88,
+        "ra": 293.8041,
+        "dec": -48.0992
+      }
+    ],
+    "area": 251.8
+  },
+  {
+    "id": "TrA",
+    "name": "Triangulum Australe",
+    "gen": "Trianguli Australis",
+    "center": [
+      241.72,
+      -65.55
+    ],
+    "brightestStars": [
+      {
+        "name": "Atria",
+        "mag": 1.91,
+        "ra": 252.1662,
+        "dec": -69.0277
+      },
+      {
+        "name": "\u03b2",
+        "mag": 2.83,
+        "ra": 238.7857,
+        "dec": -63.4307
+      },
+      {
+        "name": "\u03b3",
+        "mag": 2.87,
+        "ra": 229.7274,
+        "dec": -68.6795
+      },
+      {
+        "name": "\u03b4",
+        "mag": 3.86,
+        "ra": 243.8595,
+        "dec": -63.6857
+      },
+      {
+        "name": "\u03b5",
+        "mag": 4.11,
+        "ra": 234.1801,
+        "dec": -66.317
+      }
+    ],
+    "area": 109.1
+  },
+  {
+    "id": "Tri",
+    "name": "Triangulum",
+    "gen": "Trianguli",
+    "center": [
+      32.57,
+      31.84
+    ],
+    "brightestStars": [
+      {
+        "name": "Mizan",
+        "mag": 3,
+        "ra": 32.3859,
+        "dec": 34.9873
+      },
+      {
+        "name": "Mothallah",
+        "mag": 3.42,
+        "ra": 28.2704,
+        "dec": 29.5788
+      },
+      {
+        "name": "\u03b3",
+        "mag": 4.03,
+        "ra": 34.3286,
+        "dec": 33.8472
+      },
+      {
+        "name": "\u03b4",
+        "mag": 4.84,
+        "ra": 34.2635,
+        "dec": 34.2242
+      },
+      {
+        "name": "HIP 10280",
+        "mag": 4.94,
+        "ra": 33.0928,
+        "dec": 30.3031
+      }
+    ],
+    "area": 131.1
+  },
+  {
+    "id": "Tuc",
+    "name": "Tucana",
+    "gen": "Tucanae",
+    "center": [
+      355.71,
+      -68.32
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b1",
+        "mag": 2.87,
+        "ra": 334.6254,
+        "dec": -60.2596
+      },
+      {
+        "name": "\u03b3",
+        "mag": 3.99,
+        "ra": 349.3574,
+        "dec": -58.2357
+      },
+      {
+        "name": "\u03b6",
+        "mag": 4.23,
+        "ra": 5.0178,
+        "dec": -64.8748
+      },
+      {
+        "name": "\u03ba",
+        "mag": 4.25,
+        "ra": 18.9423,
+        "dec": -68.8759
+      },
+      {
+        "name": "\u03b21",
+        "mag": 4.36,
+        "ra": 7.8861,
+        "dec": -62.9582
+      }
+    ],
+    "area": 291.9
+  },
+  {
+    "id": "UMa",
+    "name": "Ursa Major",
+    "gen": "Ursae Majoris",
+    "center": [
+      171.15,
+      52.77
+    ],
+    "brightestStars": [
+      {
+        "name": "Alioth",
+        "mag": 1.76,
+        "ra": 193.5073,
+        "dec": 55.9598
+      },
+      {
+        "name": "Dubhe",
+        "mag": 1.81,
+        "ra": 165.932,
+        "dec": 61.751
+      },
+      {
+        "name": "Alkaid",
+        "mag": 1.85,
+        "ra": 206.8852,
+        "dec": 49.3133
+      },
+      {
+        "name": "Mizar",
+        "mag": 2.23,
+        "ra": 200.9814,
+        "dec": 54.9254
+      },
+      {
+        "name": "Merak",
+        "mag": 2.34,
+        "ra": 165.4603,
+        "dec": 56.3824
+      }
+    ],
+    "area": 1275.2
+  },
+  {
+    "id": "UMi",
+    "name": "Ursa Minor",
+    "gen": "Ursae Minoris",
+    "center": [
+      226.51,
+      81.35
+    ],
+    "brightestStars": [
+      {
+        "name": "Polaris",
+        "mag": 1.97,
+        "ra": 37.9545,
+        "dec": 89.2641
+      },
+      {
+        "name": "Kochab",
+        "mag": 2.07,
+        "ra": 222.6764,
+        "dec": 74.1555
+      },
+      {
+        "name": "Pherkad",
+        "mag": 3,
+        "ra": 230.1821,
+        "dec": 71.834
+      },
+      {
+        "name": "Circitores",
+        "mag": 4.21,
+        "ra": 251.4927,
+        "dec": 82.0373
+      },
+      {
+        "name": "HIP 5372",
+        "mag": 4.24,
+        "ra": 17.187,
+        "dec": 86.2571
+      }
+    ],
+    "area": 259.5
+  },
+  {
+    "id": "Vel",
+    "name": "Vela",
+    "gen": "Velorum",
+    "center": [
+      135.99,
+      -49.91
+    ],
+    "brightestStars": [
+      {
+        "name": "Regor",
+        "mag": 1.75,
+        "ra": 122.3831,
+        "dec": -47.3366
+      },
+      {
+        "name": "Alsephina",
+        "mag": 1.93,
+        "ra": 131.1759,
+        "dec": -54.7088
+      },
+      {
+        "name": "Suhail",
+        "mag": 2.23,
+        "ra": 136.999,
+        "dec": -43.4326
+      },
+      {
+        "name": "Markeb",
+        "mag": 2.47,
+        "ra": 140.5284,
+        "dec": -55.0107
+      },
+      {
+        "name": "\u03bc",
+        "mag": 2.69,
+        "ra": 161.6924,
+        "dec": -49.4203
+      }
+    ],
+    "area": 497.3
+  },
+  {
+    "id": "Vir",
+    "name": "Virgo",
+    "gen": "Virginis",
+    "center": [
+      196.31,
+      -0.54
+    ],
+    "brightestStars": [
+      {
+        "name": "Spica",
+        "mag": 0.98,
+        "ra": 201.2982,
+        "dec": -11.1613
+      },
+      {
+        "name": "Porrima",
+        "mag": 2.74,
+        "ra": 190.4152,
+        "dec": -1.4494
+      },
+      {
+        "name": "Vindemiatrix",
+        "mag": 2.85,
+        "ra": 195.5442,
+        "dec": 10.9592
+      },
+      {
+        "name": "Heze",
+        "mag": 3.38,
+        "ra": 203.6733,
+        "dec": -0.5958
+      },
+      {
+        "name": "Minelauva",
+        "mag": 3.39,
+        "ra": 193.9009,
+        "dec": 3.3975
+      }
+    ],
+    "area": 1295.1
+  },
+  {
+    "id": "Vol",
+    "name": "Volans",
+    "gen": "Volantis",
+    "center": [
+      109.36,
+      -69.79
+    ],
+    "brightestStars": [
+      {
+        "name": "\u03b2",
+        "mag": 3.77,
+        "ra": 126.4341,
+        "dec": -66.1369
+      },
+      {
+        "name": "\u03b32",
+        "mag": 3.78,
+        "ra": 107.1869,
+        "dec": -70.4989
+      },
+      {
+        "name": "\u03b6",
+        "mag": 3.93,
+        "ra": 115.4553,
+        "dec": -72.6061
+      },
+      {
+        "name": "\u03b4",
+        "mag": 3.97,
+        "ra": 109.2076,
+        "dec": -67.9572
+      },
+      {
+        "name": "\u03b1",
+        "mag": 4,
+        "ra": 135.6116,
+        "dec": -66.3961
+      }
+    ],
+    "area": 141.2
+  },
+  {
+    "id": "Vul",
+    "name": "Vulpecula",
+    "gen": "Vulpeculae",
+    "center": [
+      302.99,
+      24.13
+    ],
+    "brightestStars": [
+      {
+        "name": "Anser",
+        "mag": 4.44,
+        "ra": 292.1764,
+        "dec": 24.6649
+      },
+      {
+        "name": "HIP 99874",
+        "mag": 4.5,
+        "ra": 303.9422,
+        "dec": 27.8142
+      },
+      {
+        "name": "HIP 103004",
+        "mag": 4.56,
+        "ra": 313.032,
+        "dec": 27.097
+      },
+      {
+        "name": "HIP 97886",
+        "mag": 4.57,
+        "ra": 298.3654,
+        "dec": 24.0796
+      },
+      {
+        "name": "HIP 98543",
+        "mag": 4.66,
+        "ra": 300.2752,
+        "dec": 27.7536
+      }
+    ],
+    "area": 266.3
+  }
+]

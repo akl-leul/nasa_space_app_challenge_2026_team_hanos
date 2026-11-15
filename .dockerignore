@@ -1,0 +1,10 @@
+# Only what the API image needs goes into the build context.
+**
+!services/api/**
+!scripts/prewarm_targets.py
+!scripts/build_test_matrix.py
+services/api/.venv
+services/api/cache
+services/api/tests
+**/__pycache__
+**/*.pyc

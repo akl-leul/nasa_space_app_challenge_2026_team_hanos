@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://hanos.surf/sitemap.xml
+Host: https://hanos.surf
